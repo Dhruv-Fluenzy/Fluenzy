@@ -13,7 +13,7 @@ export default {
           black: '#111111',
           gray: '#6B7280',
           'light-gray': '#E5E7EB',
-          coral: '#E2725B',
+          coral: '#1B3C53',
         }
       },
       animation: {
