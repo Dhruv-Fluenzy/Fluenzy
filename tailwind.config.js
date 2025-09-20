@@ -9,11 +9,11 @@ export default {
       },
       colors: {
         'fluenzy': {
-          white: '#FFFFFF',
-          black: '#111111',
+          white: '#111111',
+          black: '#FFCDB2',
           gray: '#6B7280',
           'light-gray': '#E5E7EB',
-          coral: '#1B3C53',
+          coral: '#B5828C',
         }
       },
       animation: {

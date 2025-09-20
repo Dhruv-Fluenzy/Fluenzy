@@ -62,8 +62,8 @@ const ShowcaseGrid: React.FC = () => {
             Our Work
           </h2>
           <p className="font-inter text-xl text-fluenzy-gray max-w-2xl mx-auto">
-            Premium influencer content that drives results. Every piece crafted 
-            with attention to detail and strategic thinking.
+            Fluencers create. We shape, edit and perfect. <br />
+            Delivering only the content your brand deserves.
           </p>
         </div>
 

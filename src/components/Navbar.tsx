@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
           <div className="font-noi font-bold text-2xl text-fluenzy-black tracking-tight">
-            FLUENZY
+            Fluenzy.in
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
