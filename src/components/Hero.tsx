@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Users, Eye, ThumbsUp, Video } from "lucide-react";
 
 const phrases = [
   [
@@ -14,6 +15,34 @@ const phrases = [
     { text: "wins.", color: "text-fluenzy-black" },
   ],
 ];
+
+const metrics = [
+  {
+    icon: Users,
+    label: "Influencers Onboarded",
+    value: "50",
+    description: "Fashion + accessories creators",
+  },
+  {
+    icon: Eye,
+    label: "Total Reach",
+    value: "250K",
+    description: "Combined followers of all influencers",
+  },
+  {
+    icon: ThumbsUp,
+    label: "Avg Engagement Rate",
+    value: "8.5%",
+    description: "Audience is active & engaged",
+  },
+  {
+    icon: Video,
+    label: "Content Delivered",
+    value: "40",
+    description: "Brand-ready videos",
+  },
+];
+
 
 const TypingHero: React.FC = () => {
   const [currentPhrase, setCurrentPhrase] = useState(0);
@@ -80,7 +109,7 @@ const TypingHero: React.FC = () => {
 
   return (
     <section className="pt-40 pb-20 px-6 lg:px-12">
-      <div className="max-w-7xl mx-auto">
+      <div className=" mb-12 max-w-7xl mx-auto">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="font-noi  font-bold text-5xl md:text-7xl lg:text-8xl leading-tight mb-12 tracking-tight min-h-[6rem]">
             {displayedText.map((word, idx) => (
@@ -141,6 +170,20 @@ const TypingHero: React.FC = () => {
             </svg>
           </button>
         </div>
+        
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-7xl mx-auto mb-16">
+        {metrics.map((metric) => (
+          <div
+            key={metric.label}
+            className="flex flex-col items-center bg-fluenzy-light-gray/10 p-6 rounded-xl shadow hover:shadow-lg transition-shadow duration-300"
+          >
+            <metric.icon className="w-10 h-10 text-fluenzy-coral mb-4" />
+            <span className="font-noi text-4xl md:text-5xl text-fluenzy-black mb-2">{metric.value}</span>
+            <h3 className="font-inter font-semibold text-lg text-fluenzy-black mb-1 text-center">{metric.label}</h3>
+            <p className="font-inter text-sm text-fluenzy-gray text-center">{metric.description}</p>
+          </div>
+        ))}
       </div>
     </section>
   );
