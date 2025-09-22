@@ -2,7 +2,7 @@ import React from 'react';
 
 const CTASection: React.FC = () => {
   return (
-    <section className="py-20 px-6 lg:px-12 bg-fluenzy-light-gray">
+    <section id="contact" className="py-20 px-6 lg:px-12 bg-fluenzy-light-gray">
       <div className="max-w-7xl mx-auto">
         <div className="max-w-4xl mx-auto text-center animate-slide-up">
           <h2 className="font-noi font-bold text-4xl md:text-6xl text-fluenzy-coral mb-8 leading-tight">
