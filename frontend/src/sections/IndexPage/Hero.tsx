@@ -1,23 +1,22 @@
-import { motion } from "framer-motion"
-import { Link } from "react-router-dom"
-import Badge from "../../components/Badge"
-import SimpleHeroHeading from "../../components/SimpleHeroHeading"
-import ParticleBackground from "../../components/ParticleBackground"
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import Badge from "../../components/Badge";
+import SimpleHeroHeading from "../../components/SimpleHeroHeading";
+import ParticleBackground from "../../components/ParticleBackground";
 // import HeroHeading from "../../components/HeroHeading" // Complex version with gradients
 // import AnimationShowcase from "../../components/AnimationShowcase" // For testing different animations
-import {
-  Check,
-  Star
-} from "lucide-react"
-import Button from "../../components/Button"
-import StatsGrid from "../../components/StatsGrid"
+import { Check, Star } from "lucide-react";
+import Button from "../../components/Button";
+import StatsGrid from "../../components/StatsGrid";
 
 const Hero = () => {
   return (
     <section
       id="hero"
       className="min-h-screen w-full py-20 md:py-32 lg:py-40 overflow-hidden"
-    >      <div className="container-div">
+    >
+      {" "}
+      <div className=" container-div">
         <div className="hero-box-bg" />
         <ParticleBackground />
 
@@ -26,20 +25,24 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="text-center max-w-4xl mx-auto mb-12 relative z-10"        >                   <div className="relative">
+          className="text-center max-w-4xl mx-auto mb-12 relative z-10"
+        >
+          {" "}
+          <div className="mt-6 relative">
             <SimpleHeroHeading />
           </div>
           <motion.p
             className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.0, ease: "easeOut" }}          >
-            Brands get polished, scroll-stopping influencer content.
-
-            Influencers simply shoot and focus on their creativity.
-
-            We handle everything in between from concept to delivery so everyone wins and the process is effortless.
-          </motion.p>          <motion.div
+            transition={{ duration: 0.6, delay: 1.0, ease: "easeOut" }}
+          >
+            Brands get polished, scroll-stopping influencer content. Influencers
+            simply shoot and focus on their creativity. We handle everything in
+            between from concept to delivery so everyone wins and the process is
+            effortless.
+          </motion.p>{" "}
+          <motion.div
             className="block md:flex md:flex-row justify-center items-center gap-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -57,25 +60,26 @@ const Hero = () => {
                 backgroundColor="bg-primary"
                 textColor="text-white"
               />
-            </motion.div>            <motion.div
+            </motion.div>{" "}
+            <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
-              <Link 
+              <Link
                 to="/brand-onboarding"
                 className="w-full md:w-auto px-8 py-4 group border border-border hover:border-primary/50 bg-background text-foreground rounded-lg transition-all duration-300 font-medium inline-block text-center"
               >
                 Book A Call
               </Link>
             </motion.div>
-          </motion.div>          <motion.div
+          </motion.div>{" "}
+          <motion.div
             className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.4, ease: "easeOut" }}
           >
-
             {/* Divider */}
             {/* <div className="hidden sm:block w-px h-4 bg-border"></div> */}
 
@@ -116,9 +120,8 @@ const Hero = () => {
           <img src="https://cdn.dribbble.com/userupload/12302729/file/original-fa372845e394ee85bebe0389b9d86871.png?resize=1504x1128&vertical=center" alt="hero" />
         </motion.div> */}
       </div>
-
     </section>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;
