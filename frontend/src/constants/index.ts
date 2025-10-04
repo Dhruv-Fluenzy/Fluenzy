@@ -94,65 +94,66 @@ const stats = [
 
 ]
 
-const workVideos = [{
-    id: 1,
-    title: "Premium Content Creation Showcase",
-    description: "Watch how we transform brand stories into engaging content that captivates audiences and drives real results",
-    thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/so_0/v1758377014/IMG_5033_u9xof5.jpg",
-    videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1758377014/IMG_5033_u9xof5.mp4",
-    category: "Brand Content",
-    brand: "Fluenzy",
-    duration: 165 // fallback duration in seconds (2:45)
-},
-{
-    id: 2,
-    title: "Influencer Success Stories",
-    description: "See how our strategic approach helps influencers and brands create authentic connections that convert",
-    thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1695234567/SpaceLines_X_Marketing_LAB_Assignment_2_zenqdc.jpg",
-    videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1695234567/SpaceLines_X_Marketing_LAB_Assignment_2_zenqdc.mp4",
-    category: "Success Stories",
-    brand: "Fluenzy",
-    duration: 180 // fallback duration in seconds (3:00)
-}, {
-    id: 3,
-    title: "Lifestyle - Morning Routine",
-    description: "Authentic morning routine content featuring wellness and productivity tips",
-    thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514911/TEST_Graphic_video_usazd3.jpg",
-    videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514911/TEST_Graphic_video_usazd3.mp4", // Placeholder for now
-    category: "Lifestyle",
-    brand: "WellnessPlus",
-    duration: 195 // 3:15
-},
-{
-    id: 4,
-    title: "Tech Review - Latest Gadgets",
-    description: "In-depth review of cutting-edge technology with engaging storytelling",
-    thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514909/Akhilesh_Original_1_odzymr.jpg",
-    videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514909/Akhilesh_Original_1_odzymr.mp4", // Placeholder for now
-    category: "Technology",
-    brand: "TechNova",
-    duration: 240 // 4:00
-},
-{
-    id: 5,
-    title: "Food & Travel - Street Food Tour",
-    description: "Culinary adventure exploring authentic street food with cultural insights",
-    thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514909/Revant_LJ_1_dqxm7k.jpg",
-    videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514909/Revant_LJ_1_dqxm7k.mp4", // Placeholder for now
-    category: "Food & Travel",
-    brand: "TasteTrek",
-    duration: 210 // 3:30
-},
-{
-    id: 6,
-    title: "Fitness Journey - Transformation Story",
-    description: "Inspiring fitness transformation with workout routines and nutrition tips",
-    thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514908/Pony_tail_Vector_pzdogm.jpg",
-    videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514908/Pony_tail_Vector_pzdogm.mp4", // Placeholder for now
-    category: "Fitness",
-    brand: "FitLife",
-    duration: 150 // 2:30
-}
+const workVideos = [    {
+        id: 1,
+        title: "Premium Content Creation Showcase",
+        description: "Watch how we transform brand stories into engaging content that captivates audiences and drives real results",
+        thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/so_0/v1758377014/IMG_5033_u9xof5.jpg",
+        videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1758377014/IMG_5033_u9xof5.mp4",
+        category: "Brand Awareness",
+        brand: "Fluenzy",
+        duration: 165
+    },
+    {
+        id: 2,
+        title: "Influencer Success Stories",
+        description: "See how our strategic approach helps influencers and brands create authentic connections that convert",
+        thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1695234567/SpaceLines_X_Marketing_LAB_Assignment_2_zenqdc.jpg",
+        videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1695234567/SpaceLines_X_Marketing_LAB_Assignment_2_zenqdc.mp4",
+        category: "Sales Conversions",
+        brand: "Fluenzy",
+        duration: 180
+    },
+    {
+        id: 3,
+        title: "Crafting Stunning Beauty & Lifestyle Ads That Inspire",
+        description: "Bring your brand to life with captivating visuals and stories that connect. From minimal elegance to bold lifestyle narratives, we design ad content that makes your product shine and your audience engage.",
+        thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514911/TEST_Graphic_video_usazd3.jpg",
+        videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514911/TEST_Graphic_video_usazd3.mp4",
+        category: "Brand Awareness",
+        brand: "mCaffeine",
+        duration: 195
+    },
+    {
+        id: 4,
+        title: "Redefining Men’s Health Through Impactful Ads",
+        description: "We craft powerful campaigns that break the silence around men’s health—making wellness, strength, and self-care relatable. From awareness to action, our ads help brands connect with men in a way that’s authentic, inspiring, and results-driven.",
+        thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514909/Akhilesh_Original_1_odzymr.jpg",
+        videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514909/Akhilesh_Original_1_odzymr.mp4",
+        category: "Brand Awareness",
+        brand: "Man Matters",
+        duration: 240
+    },
+    {
+        id: 5,
+        title: "Turning Nutrition Into Stories That Educate & Engage",
+        description: " We craft ad content that blends knowledge with creativity—making food & nutrition education simple, relatable, and inspiring. From healthy eating tips to lifestyle-driven campaigns, we help brands inform while they grow.",
+        thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514909/Revant_LJ_1_dqxm7k.jpg",
+        videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514909/Revant_LJ_1_dqxm7k.mp4",
+        category: "Social Media Growth",
+        brand: "Little Joys",
+        duration: 210
+    },
+    {
+        id: 6,
+        title: "From Hair Woes to Hair Goals – We Create Ads That Solve",
+        description: "We design beauty & personal care ad campaigns that connect with real concerns—like hair fall, dryness, or damage—and showcase solutions that feel authentic and inspiring. Turning everyday struggles into powerful stories that build trust and boost your brand.",
+        thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514908/Pony_tail_Vector_pzdogm.jpg",
+        videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514908/Pony_tail_Vector_pzdogm.mp4",
+        category: "Sales Conversions",
+        brand: "Be Bodywise",
+        duration: 150
+    },
 ]
 
 const workVideosForPage = [
@@ -183,7 +184,7 @@ const workVideosForPage = [
         thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514911/TEST_Graphic_video_usazd3.jpg",
         videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514911/TEST_Graphic_video_usazd3.mp4",
         category: "Brand Awareness",
-        brand: "WellnessPlus",
+        brand: "mCaffeine",
         duration: 195
     },
     {
@@ -193,7 +194,7 @@ const workVideosForPage = [
         thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514909/Akhilesh_Original_1_odzymr.jpg",
         videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514909/Akhilesh_Original_1_odzymr.mp4",
         category: "Brand Awareness",
-        brand: "TechNova",
+        brand: "Man Matters",
         duration: 240
     },
     {
@@ -203,7 +204,7 @@ const workVideosForPage = [
         thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514909/Revant_LJ_1_dqxm7k.jpg",
         videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514909/Revant_LJ_1_dqxm7k.mp4",
         category: "Social Media Growth",
-        brand: "TasteTrek",
+        brand: "Little Joys",
         duration: 210
     },
     {
@@ -213,7 +214,7 @@ const workVideosForPage = [
         thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514908/Pony_tail_Vector_pzdogm.jpg",
         videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514908/Pony_tail_Vector_pzdogm.mp4",
         category: "Sales Conversions",
-        brand: "FitLife",
+        brand: "Be Bodywise",
         duration: 150
     },
     {
@@ -223,7 +224,7 @@ const workVideosForPage = [
         thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514908/RAW_TANUSH_il4ns7.jpg",
         videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514908/RAW_TANUSH_il4ns7.mp4",
         category: "Brand Awareness",
-        brand: "FitLife",
+        brand: "Man Matters",
         duration: 150
     },
     {
@@ -233,7 +234,7 @@ const workVideosForPage = [
         thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514903/LJ_INF_Rashmi_Rai_krfdkv.jpg",
         videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514903/LJ_INF_Rashmi_Rai_krfdkv.mp4",
         category: "Social Media Growth",
-        brand: "FitLife",
+        brand: "Little Joys",
         duration: 150
     },
     {
@@ -243,7 +244,7 @@ const workVideosForPage = [
         thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514900/CUT_1_HGRO_gmzuzp.jpg",
         videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514900/CUT_1_HGRO_gmzuzp.mp4",
         category: "Sales Conversions",
-        brand: "FitLife",
+        brand: "Be Bodywise",
         duration: 150
     },
     {
@@ -253,7 +254,7 @@ const workVideosForPage = [
         thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514898/AD_1_1_s7d5mv.jpg",
         videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514898/AD_1_1_s7d5mv.mp4",
         category: "Brand Awareness",
-        brand: "FitLife",
+        brand: "Man Matters",
         duration: 150
     },
     {
@@ -263,7 +264,7 @@ const workVideosForPage = [
         thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514898/Banana_Final_zvydtc.jpg",
         videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514898/Banana_Final_zvydtc.mp4",
         category: "Sales Conversions",
-        brand: "FitLife",
+        brand: "Be Bodywise",
         duration: 150
     },
     {
@@ -273,7 +274,7 @@ const workVideosForPage = [
         thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514897/CUT_1_up7vdb.jpg",
         videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514897/CUT_1_up7vdb.mp4",
         category: "Sales Conversions",
-        brand: "FitLife",
+        brand: "Be Bodywise",
         duration: 150
     }
 ]
