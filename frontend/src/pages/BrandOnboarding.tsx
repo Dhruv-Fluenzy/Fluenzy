@@ -1,21 +1,30 @@
-import { motion } from "framer-motion"
-import { useState } from "react"
-import { ArrowRight, Building2, Mail, Globe, Target, DollarSign, Clock, MessageSquare } from "lucide-react"
-import Navbar from "../components/Navbar"
-import Footer from "../components/Footer"
-import Badge from "../components/Badge"
+import { motion } from "framer-motion";
+import { useState } from "react";
+import {
+  ArrowRight,
+  Building2,
+  Mail,
+  Globe,
+  Target,
+  DollarSign,
+  Clock,
+  MessageSquare,
+} from "lucide-react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Badge from "../components/Badge";
 
 interface BrandFormData {
-  fullName: string
-  workEmail: string
-  brandName: string
-  website: string
-  instaHandle: string
-  industry: string
-  campaignGoals: string[]
-  budgetRange: string
-  timeline: string
-  message: string
+  fullName: string;
+  workEmail: string;
+  brandName: string;
+  website: string;
+  instaHandle: string;
+  industry: string;
+  campaignGoals: string[];
+  budgetRange: string;
+  timeline: string;
+  message: string;
 }
 
 const BrandOnboarding = () => {
@@ -29,95 +38,108 @@ const BrandOnboarding = () => {
     campaignGoals: [],
     budgetRange: "",
     timeline: "",
-    message: ""
-  })
-  
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  const [errors, setErrors] = useState<Record<string, string>>({})
+    message: "",
+  });
 
-  const industries = [
-    "Fashion",
-    "Beauty & Lifestyle",
-    "Other"
-  ]
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const industries = ["Fashion", "Beauty & Lifestyle", "Other"];
 
   const campaignGoalOptions = [
     "Brand Awareness",
-    "Sales Conversions", 
+    "Sales Conversions",
     "New Launch",
     "Festive Offers",
     "Social Media Growth",
-    "Other"
-  ]
+    "Other",
+  ];
 
-  const budgetRanges = [
-    "<₹25K",
-    "₹25K–₹50K",
-    "₹50K–₹75K", 
-    ">₹75K"
-  ]
+  const budgetRanges = ["<₹25K", "₹25K–₹50K", "₹50K–₹75K", ">₹75K"];
 
-  const timelines = [
-    "ASAP",
-    "2–4 days",
-    "1–2 weeks",
-    "Flexible"
-  ]
+  const timelines = ["ASAP", "2–4 days", "1–2 weeks", "Flexible"];
 
   const handleInputChange = (field: keyof BrandFormData, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }))
+    setFormData((prev) => ({ ...prev, [field]: value }));
     if (errors[field]) {
-      setErrors(prev => ({ ...prev, [field]: "" }))
+      setErrors((prev) => ({ ...prev, [field]: "" }));
     }
-  }
+  };
 
   const handleCheckboxChange = (goal: string) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       campaignGoals: prev.campaignGoals.includes(goal)
-        ? prev.campaignGoals.filter(g => g !== goal)
-        : [...prev.campaignGoals, goal]
-    }))
-  }
+        ? prev.campaignGoals.filter((g) => g !== goal)
+        : [...prev.campaignGoals, goal],
+    }));
+  };
 
   const validateForm = () => {
-    const newErrors: Record<string, string> = {}
-    
-    if (!formData.fullName.trim()) newErrors.fullName = "Full name is required"
-    if (!formData.workEmail.trim()) newErrors.workEmail = "Work email is required"
-    else if (!/\S+@\S+\.\S+/.test(formData.workEmail)) newErrors.workEmail = "Invalid email format"
-    if (!formData.brandName.trim()) newErrors.brandName = "Brand name is required"
-    if (!formData.website.trim()) newErrors.websiteOrHandle = "Website is required"
-    if (!formData.instaHandle.trim()) newErrors.websiteOrHandle = "Instagram handle is required"
-    if (!formData.industry) newErrors.industry = "Please select an industry"
-    if (formData.campaignGoals.length === 0) newErrors.campaignGoals = "Please select at least one campaign goal"
-    if (!formData.budgetRange) newErrors.budgetRange = "Please select a budget range"
-    if (!formData.timeline) newErrors.timeline = "Please select a timeline"
+    const newErrors: Record<string, string> = {};
 
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }
+    if (!formData.fullName.trim()) newErrors.fullName = "Full name is required";
+    if (!formData.workEmail.trim())
+      newErrors.workEmail = "Work email is required";
+    else if (!/\S+@\S+\.\S+/.test(formData.workEmail))
+      newErrors.workEmail = "Invalid email format";
+    if (!formData.brandName.trim())
+      newErrors.brandName = "Brand name is required";
+    if (!formData.website.trim())
+      newErrors.websiteOrHandle = "Website is required";
+    if (!formData.instaHandle.trim())
+      newErrors.websiteOrHandle = "Instagram handle is required";
+    if (!formData.industry) newErrors.industry = "Please select an industry";
+    if (formData.campaignGoals.length === 0)
+      newErrors.campaignGoals = "Please select at least one campaign goal";
+    if (!formData.budgetRange)
+      newErrors.budgetRange = "Please select a budget range";
+    if (!formData.timeline) newErrors.timeline = "Please select a timeline";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    
-    if (!validateForm()) return
-
-    setIsSubmitting(true)
-
+    e.preventDefault();
+  
+    if (!validateForm()) return;
+  
+    setIsSubmitting(true);
+  
     try {
-      // Here you would typically send the form data to your backend
-      // For now, we'll simulate a submission
-      await new Promise(resolve => setTimeout(resolve, 2000))
-      
-      setIsSubmitted(true)
-    } catch (error) {
-      console.error("Form submission error:", error)
+      const payload = new FormData();
+      Object.entries(formData).forEach(([key, value]) => {
+        if (Array.isArray(value)) {
+          value.forEach((v) => payload.append(key, v));
+        } else {
+          payload.append(key, value);
+        }
+      });
+  
+      const response = await fetch("https://getform.io/f/bolzwjza", {
+        method: "POST",
+        body: payload,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+  
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        const text = await response.text();
+        console.error("Form submission failed:", text);
+        alert("Submission failed. Please try again.");
+      }
+    } catch (err) {
+      console.error("Form submission error:", err);
+      alert("Something went wrong. Please try again later.");
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   if (isSubmitted) {
     return (
@@ -133,23 +155,37 @@ const BrandOnboarding = () => {
             >
               <div className="mb-8">
                 <div className="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full mb-6">
-                  <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  <svg
+                    className="w-10 h-10 text-green-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
                   </svg>
                 </div>
-                <h1 className="text-3xl md:text-4xl font-bold mb-4">Thank You!</h1>
+                <h1 className="text-3xl md:text-4xl font-bold mb-4">
+                  Thank You!
+                </h1>
                 <p className="text-lg text-muted-foreground mb-8">
-                  Your brand brief has been submitted successfully. Our team will review your requirements and get back to you within 24 hours with a customized proposal.
+                  Your brand brief has been submitted successfully. Our team
+                  will review your requirements and get back to you within 24
+                  hours with a customized proposal.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button 
-                    onClick={() => window.location.href = '/'}
+                  <button
+                    onClick={() => (window.location.href = "/")}
                     className="bg-primary text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors duration-300 font-medium"
                   >
                     Back to Home
                   </button>
-                  <button 
-                    onClick={() => window.location.href = '/all-work'}
+                  <button
+                    onClick={() => (window.location.href = "/all-work")}
                     className="border border-primary text-primary px-8 py-3 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 font-medium"
                   >
                     View Our Work
@@ -161,18 +197,18 @@ const BrandOnboarding = () => {
         </section>
         <Footer />
       </div>
-    )
+    );
   }
 
   return (
     <div className="min-h-screen">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="w-full py-20 md:py-32 lg:py-40">
         <div className="container-div">
           <div className="hero-box-bg" />
-          
+
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -188,7 +224,8 @@ const BrandOnboarding = () => {
               </span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Tell us about your brand and campaign goals. We'll match you with the right Fluencers and deliver polished content.
+              Tell us about your brand and campaign goals. We'll match you with
+              the right Fluencers and deliver polished content.
             </p>
           </motion.div>
 
@@ -210,13 +247,17 @@ const BrandOnboarding = () => {
                   <input
                     type="text"
                     value={formData.fullName}
-                    onChange={(e) => handleInputChange("fullName", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("fullName", e.target.value)
+                    }
                     className={`w-full px-4 py-3 bg-background border rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 ${
                       errors.fullName ? "border-red-500" : "border-border"
                     }`}
                     placeholder="Your full name"
                   />
-                  {errors.fullName && <p className="text-red-500 text-sm">{errors.fullName}</p>}
+                  {errors.fullName && (
+                    <p className="text-red-500 text-sm">{errors.fullName}</p>
+                  )}
                 </div>
 
                 {/* Work Email */}
@@ -228,13 +269,17 @@ const BrandOnboarding = () => {
                   <input
                     type="email"
                     value={formData.workEmail}
-                    onChange={(e) => handleInputChange("workEmail", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("workEmail", e.target.value)
+                    }
                     className={`w-full px-4 py-3 bg-background border rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 ${
                       errors.workEmail ? "border-red-500" : "border-border"
                     }`}
                     placeholder="you@company.com"
                   />
-                  {errors.workEmail && <p className="text-red-500 text-sm">{errors.workEmail}</p>}
+                  {errors.workEmail && (
+                    <p className="text-red-500 text-sm">{errors.workEmail}</p>
+                  )}
                 </div>
 
                 {/* Brand Name */}
@@ -246,13 +291,17 @@ const BrandOnboarding = () => {
                   <input
                     type="text"
                     value={formData.brandName}
-                    onChange={(e) => handleInputChange("brandName", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("brandName", e.target.value)
+                    }
                     className={`w-full px-4 py-3 bg-background border rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 ${
                       errors.brandName ? "border-red-500" : "border-border"
                     }`}
                     placeholder="Your brand name"
                   />
-                  {errors.brandName && <p className="text-red-500 text-sm">{errors.brandName}</p>}
+                  {errors.brandName && (
+                    <p className="text-red-500 text-sm">{errors.brandName}</p>
+                  )}
                 </div>
 
                 {/* Website*/}
@@ -264,15 +313,22 @@ const BrandOnboarding = () => {
                   <input
                     type="text"
                     value={formData.website}
-                    onChange={(e) => handleInputChange("website", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("website", e.target.value)
+                    }
                     className={`w-full px-4 py-3 bg-background border rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 ${
-                      errors.websiteOrHandle ? "border-red-500" : "border-border"
+                      errors.websiteOrHandle
+                        ? "border-red-500"
+                        : "border-border"
                     }`}
                     placeholder="www.yourbrand.com"
                   />
-                  {errors.websiteOrHandle && <p className="text-red-500 text-sm">{errors.websiteOrHandle}</p>}
+                  {errors.websiteOrHandle && (
+                    <p className="text-red-500 text-sm">
+                      {errors.websiteOrHandle}
+                    </p>
+                  )}
                 </div>
-
 
                 {/* Instagram Handle */}
                 <div className="space-y-2">
@@ -283,13 +339,21 @@ const BrandOnboarding = () => {
                   <input
                     type="text"
                     value={formData.instaHandle}
-                    onChange={(e) => handleInputChange("instaHandle", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("instaHandle", e.target.value)
+                    }
                     className={`w-full px-4 py-3 bg-background border rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 ${
-                      errors.websiteOrHandle ? "border-red-500" : "border-border"
+                      errors.websiteOrHandle
+                        ? "border-red-500"
+                        : "border-border"
                     }`}
                     placeholder="@yourbrand"
                   />
-                  {errors.websiteOrHandle && <p className="text-red-500 text-sm">{errors.websiteOrHandle}</p>}
+                  {errors.websiteOrHandle && (
+                    <p className="text-red-500 text-sm">
+                      {errors.websiteOrHandle}
+                    </p>
+                  )}
                 </div>
 
                 {/* Industry */}
@@ -300,17 +364,23 @@ const BrandOnboarding = () => {
                   </label>
                   <select
                     value={formData.industry}
-                    onChange={(e) => handleInputChange("industry", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("industry", e.target.value)
+                    }
                     className={`w-full px-4 py-3 bg-background border rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 ${
                       errors.industry ? "border-red-500" : "border-border"
                     }`}
                   >
                     <option value="">Select your industry</option>
-                    {industries.map(industry => (
-                      <option key={industry} value={industry}>{industry}</option>
+                    {industries.map((industry) => (
+                      <option key={industry} value={industry}>
+                        {industry}
+                      </option>
                     ))}
                   </select>
-                  {errors.industry && <p className="text-red-500 text-sm">{errors.industry}</p>}
+                  {errors.industry && (
+                    <p className="text-red-500 text-sm">{errors.industry}</p>
+                  )}
                 </div>
 
                 {/* Budget Range */}
@@ -321,17 +391,23 @@ const BrandOnboarding = () => {
                   </label>
                   <select
                     value={formData.budgetRange}
-                    onChange={(e) => handleInputChange("budgetRange", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("budgetRange", e.target.value)
+                    }
                     className={`w-full px-4 py-3 bg-background border rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 ${
                       errors.budgetRange ? "border-red-500" : "border-border"
                     }`}
                   >
                     <option value="">Select budget range</option>
-                    {budgetRanges.map(range => (
-                      <option key={range} value={range}>{range}</option>
+                    {budgetRanges.map((range) => (
+                      <option key={range} value={range}>
+                        {range}
+                      </option>
                     ))}
                   </select>
-                  {errors.budgetRange && <p className="text-red-500 text-sm">{errors.budgetRange}</p>}
+                  {errors.budgetRange && (
+                    <p className="text-red-500 text-sm">{errors.budgetRange}</p>
+                  )}
                 </div>
 
                 {/* Timeline */}
@@ -342,17 +418,23 @@ const BrandOnboarding = () => {
                   </label>
                   <select
                     value={formData.timeline}
-                    onChange={(e) => handleInputChange("timeline", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("timeline", e.target.value)
+                    }
                     className={`w-full px-4 py-3 bg-background border rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 ${
                       errors.timeline ? "border-red-500" : "border-border"
                     }`}
                   >
                     <option value="">Select timeline</option>
-                    {timelines.map(timeline => (
-                      <option key={timeline} value={timeline}>{timeline}</option>
+                    {timelines.map((timeline) => (
+                      <option key={timeline} value={timeline}>
+                        {timeline}
+                      </option>
                     ))}
                   </select>
-                  {errors.timeline && <p className="text-red-500 text-sm">{errors.timeline}</p>}
+                  {errors.timeline && (
+                    <p className="text-red-500 text-sm">{errors.timeline}</p>
+                  )}
                 </div>
               </div>
 
@@ -363,8 +445,11 @@ const BrandOnboarding = () => {
                   Campaign Goal * (Select all that apply)
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-                  {campaignGoalOptions.map(goal => (
-                    <label key={goal} className="flex items-center gap-3 p-3 border border-border rounded-lg hover:border-primary/50 cursor-pointer transition-colors">
+                  {campaignGoalOptions.map((goal) => (
+                    <label
+                      key={goal}
+                      className="flex items-center gap-3 p-3 border border-border rounded-lg hover:border-primary/50 cursor-pointer transition-colors"
+                    >
                       <input
                         type="checkbox"
                         checked={formData.campaignGoals.includes(goal)}
@@ -375,7 +460,9 @@ const BrandOnboarding = () => {
                     </label>
                   ))}
                 </div>
-                {errors.campaignGoals && <p className="text-red-500 text-sm">{errors.campaignGoals}</p>}
+                {errors.campaignGoals && (
+                  <p className="text-red-500 text-sm">{errors.campaignGoals}</p>
+                )}
               </div>
 
               {/* Message/Brief */}
@@ -422,7 +509,7 @@ const BrandOnboarding = () => {
 
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default BrandOnboarding
+export default BrandOnboarding;
