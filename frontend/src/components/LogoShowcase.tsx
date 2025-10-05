@@ -39,6 +39,10 @@ const LogoShowcase: React.FC = () => {
           {logoIconsList.map((icon, index) => (
             <LogoIcon key={`logo-duplicate-${index}`} icon={icon} index={index} />
           ))}
+
+                    {logoIconsList.map((icon, index) => (
+            <LogoIcon key={`logo-duplicate-${index}`} icon={icon} index={index} />
+          ))}
         </div>
       </div>
     </div>

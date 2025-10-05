@@ -5,7 +5,7 @@ const navLinks = [
     },
     {
         name: "About",
-        link: "#about",
+        link: "/#what-we-do",
     },
     {
         name: "Contact",
@@ -294,27 +294,6 @@ const workVideosForPage = [
     {
       imgPath: "/images/logos/company-logo-4.png",
     },
-    {
-      imgPath: "/images/logos/company-logo-5.png",
-    },
-    {
-      imgPath: "/images/logos/company-logo-6.png",
-    },
-    {
-      imgPath: "/images/logos/company-logo-7.png",
-    },
-    {
-      imgPath: "/images/logos/company-logo-8.png",
-    },
-    {
-      imgPath: "/images/logos/company-logo-9.png",
-    },
-    {
-      imgPath: "/images/logos/company-logo-10.png",
-    },
-    {
-      imgPath: "/images/logos/company-logo-11.png",
-    },
   ];
 
 const whatWeDoServices = [
@@ -345,10 +324,9 @@ const footerLinks = [
     {
         title: "Company",
         links: [
-            { name: "About Us", href: "#about", external: false },
             { name: "Our Work", href: "#our-work", external: false },
             { name: "What We Do", href: "#what-we-do", external: false },
-            { name: "How It Works", href: "#how-it-works", external: false }
+            { name: "How It Works", href: "/#how-it-works", external: false }
         ]
     },
     {
@@ -364,7 +342,6 @@ const footerLinks = [
         title: "Support",
         links: [
             { name: "Contact Us", href: "mailto:connect@fluenzy.in", external: false },
-            { name: "Help Center", href: "mailto:connect@fluenzy.in", external: false },
             { name: "Book a Demo", href: "/brand-onboarding", external: false },
             { name: "Get Started", href: "/brand-onboarding", external: false }
         ]

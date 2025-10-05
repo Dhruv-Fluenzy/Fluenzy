@@ -43,32 +43,33 @@ const Hero = () => {
             effortless.
           </motion.p>{" "}
           <motion.div
-            className="block md:flex md:flex-row justify-center items-center gap-4"
+            className="flex flex-col gap-4 w-full sm:flex-row sm:justify-center sm:items-center sm:gap-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.2, ease: "easeOut" }}
           >
             <motion.div
+              className="w-full sm:w-auto"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
-              <Button
-                className="w-full md:w-auto px-8 py-4 group"
-                id="free-trial"
-                text="View our Work"
-                backgroundColor="bg-primary"
-                textColor="text-white"
-              />
+              <Link 
+                to="/all-work"
+                className="bg-primary text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors duration-300 font-medium inline-block text-center w-full sm:w-auto"
+              >
+                View Our Work
+              </Link>
             </motion.div>{" "}
             <motion.div
+              className="w-full sm:w-auto"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
               <Link
                 to="/brand-onboarding"
-                className="w-full md:w-auto px-8 py-4 group border border-border hover:border-primary/50 bg-background text-foreground rounded-lg transition-all duration-300 font-medium inline-block text-center"
+                className="bg-white text-primary px-8 py-3 rounded-lg  transition-colors duration-300 font-medium inline-block text-center border border-primary w-full sm:w-auto"
               >
                 Book A Call
               </Link>

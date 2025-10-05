@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
 import Badge from "../../components/Badge"
-import VideoCarousel from "../../components/VideoCarousel"
+import ResponsiveVideoCarousel from "../../components/ResponsiveVideoCarousel"
 
 const OurWork = () => {
   return (
@@ -30,40 +30,49 @@ const OurWork = () => {
             Discover our portfolio of scroll-stopping content created by talented influencers. 
             From fashion to tech, beauty to lifestyle - see how we bring brands to life.
           </p>
-        </motion.div>
-
-        {/* Video Carousel */}
+        </motion.div>        {/* Video Carousel */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.4, ease: "easeInOut" }}
           className="max-w-7xl mx-auto"
         >
-          <VideoCarousel />
+          <ResponsiveVideoCarousel />
         </motion.div>
 
         {/* Call to Action */}
         <motion.div
+          className="flex flex-col gap-4 w-full sm:flex-row sm:justify-center sm:items-center sm:gap-4 mt-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.6, ease: "easeInOut" }}
-          className="text-center mt-12"
         >
-          <p className="text-muted-foreground mb-6">
-            Ready to create content that converts? Let's bring your brand vision to life.
-          </p>          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <motion.div
+            className="w-full sm:w-auto"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          >
             <Link 
               to="/all-work"
-              className="bg-primary text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors duration-300 font-medium inline-block text-center"
+              className="bg-primary text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors duration-300 font-medium inline-block text-center w-full sm:w-auto"
             >
               View All Work
-            </Link>            <Link 
+            </Link>
+          </motion.div>
+          <motion.div
+            className="w-full sm:w-auto"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          >
+            <Link
               to="/brand-onboarding"
-              className="border border-primary text-primary px-8 py-3 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 font-medium inline-block text-center"
+              className="bg-white text-primary px-8 py-3 rounded-lg transition-colors duration-300 font-medium inline-block text-center border border-primary w-full sm:w-auto"
             >
               Start Your Project
             </Link>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>
