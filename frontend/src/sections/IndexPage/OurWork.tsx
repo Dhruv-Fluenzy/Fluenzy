@@ -6,7 +6,7 @@ import VideoCarousel from "../../components/VideoCarousel"
 const OurWork = () => {
   return (
     <section
-      id="our-work"
+      id="work"
       className="w-full py-20 md:py-32 lg:py-40 overflow-hidden bg-muted/30"
     >
       <div className="container-div">

@@ -1,7 +1,7 @@
 const navLinks = [
     {
         name: "Work",
-        link: "#work",
+        link: "/#work",
     },
     {
         name: "About",
@@ -9,7 +9,7 @@ const navLinks = [
     },
     {
         name: "Contact",
-        link: "#contact",
+        link: "mailto:support@fluenzy.in",
     },
     {
         name: "Fluencers",
