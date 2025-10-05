@@ -8,8 +8,24 @@ import VideoCard from "../components/VideoCard"
 import VideoModal from "../components/VideoModal"
 import { workVideosForPage } from "../constants"
 
+interface Video {
+  id: number
+  title: string
+  description: string
+  thumbnail: string
+  videoUrl: string
+  category: string
+  brand: string
+  duration: number
+}
+
+/*
+id: number; title: string; description: string; thumbnail: string; videoUrl: string; category: string; brand: string; duration: number; } 
+*/
+
+
 const AllWork = () => {
-  const [selectedVideo, setSelectedVideo] = useState<any>(null)
+  const [selectedVideo, setSelectedVideo] = useState<Video | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [filter, setFilter] = useState<string>("All")
   const [searchQuery, setSearchQuery] = useState<string>("")
@@ -33,9 +49,9 @@ const AllWork = () => {
     setSearchQuery("")
   }, [filter])
 
-  const handleVideoClick = (video: any) => {
-    setSelectedVideo(video)
-    setIsModalOpen(true)
+  const handleVideoClick = (video: Video) => {
+  setSelectedVideo(video)
+  setIsModalOpen(true)
   }
 
   const handleCloseModal = () => {

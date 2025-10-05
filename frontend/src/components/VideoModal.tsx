@@ -101,7 +101,7 @@ const VideoModal: React.FC<VideoModalProps> = ({
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="relative w-full max-w-6xl bg-white dark:bg-card rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10"
+            className="relative w-full max-w-2xl lg:max-w-6xl bg-black dark:bg-card rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10"
           >
             {/* Header */}
             <div className="relative bg-gradient-to-r from-primary/10 to-primary/5 p-6 border-b border-border">
@@ -131,8 +131,10 @@ const VideoModal: React.FC<VideoModalProps> = ({
                   <X className="size-5 text-foreground" />
                 </button>
               </div>
-            </div>            {/* Video Player */}
-            <div className="relative aspect-video bg-black group">              <video
+            </div>            
+            {/* Video Player */}
+            <div className="relative aspect-video bg-black group">              
+              <video
                 ref={videoRef}
                 src={videoUrl}
                 className="w-full h-full object-contain cursor-pointer"
@@ -223,8 +225,10 @@ const VideoModal: React.FC<VideoModalProps> = ({
                   </div>
                 </div>
               </div>
-            </div>            {/* Footer Actions */}
-            <div className="p-4 bg-muted/30 border-t border-border">
+            </div>          
+
+            {/* Footer Actions */}
+            <div className="display-hidden p-4 bg-muted/30 border-t border-border">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4 text-sm text-muted-foreground">
                   <span>• Click video or spacebar to play/pause</span>
