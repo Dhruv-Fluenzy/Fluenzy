@@ -100,11 +100,17 @@ const FluencerOnboarding = () => {
     setIsSubmitting(true)
 
     try {
-      // Here you would typically send the form data to your backend
-      // For now, we'll simulate a submission
-      await new Promise(resolve => setTimeout(resolve, 2000))
-      
-      setIsSubmitted(true)
+      const response = await fetch("https://getform.io/f/bolzwjza", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+    
+      if (response.ok) {
+        setIsSubmitted(true)
+      } else {
+        console.error("Getform submission failed:", response.statusText)
+      }
     } catch (error) {
       console.error("Form submission error:", error)
     } finally {

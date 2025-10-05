@@ -101,18 +101,18 @@ const workVideos = [    {
         thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/so_0/v1758377014/IMG_5033_u9xof5.jpg",
         videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1758377014/IMG_5033_u9xof5.mp4",
         category: "Brand Awareness",
-        brand: "Fluenzy",
+        brand: "Spacelines",
         duration: 165
     },
     {
         id: 2,
-        title: "Influencer Success Stories",
-        description: "See how our strategic approach helps influencers and brands create authentic connections that convert",
-        thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1695234567/SpaceLines_X_Marketing_LAB_Assignment_2_zenqdc.jpg",
-        videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1695234567/SpaceLines_X_Marketing_LAB_Assignment_2_zenqdc.mp4",
-        category: "Sales Conversions",
-        brand: "Fluenzy",
-        duration: 180
+        title: "Serving Knowledge, One Bite at a Time",
+        description: "We create ad campaigns that make food & nutrition education engaging and easy to understand. From healthy eating tips to lifestyle insights, our content informs, inspires, and empowers your audience to make smarter choices.",
+        thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514903/LJ_INF_Rashmi_Rai_krfdkv.jpg",
+        videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514903/LJ_INF_Rashmi_Rai_krfdkv.mp4",
+        category: "Social Media Growth",
+        brand: "Little Joys",
+        duration: 150
     },
     {
         id: 3,
@@ -164,18 +164,18 @@ const workVideosForPage = [
         thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/so_0/v1758377014/IMG_5033_u9xof5.jpg",
         videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1758377014/IMG_5033_u9xof5.mp4",
         category: "Brand Awareness",
-        brand: "Fluenzy",
+        brand: "Spacelines",
         duration: 165
     },
     {
         id: 2,
-        title: "Influencer Success Stories",
-        description: "See how our strategic approach helps influencers and brands create authentic connections that convert",
-        thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1695234567/SpaceLines_X_Marketing_LAB_Assignment_2_zenqdc.jpg",
-        videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1695234567/SpaceLines_X_Marketing_LAB_Assignment_2_zenqdc.mp4",
-        category: "Sales Conversions",
-        brand: "Fluenzy",
-        duration: 180
+        title: "Serving Knowledge, One Bite at a Time",
+        description: "We create ad campaigns that make food & nutrition education engaging and easy to understand. From healthy eating tips to lifestyle insights, our content informs, inspires, and empowers your audience to make smarter choices.",
+        thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514903/LJ_INF_Rashmi_Rai_krfdkv.jpg",
+        videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514903/LJ_INF_Rashmi_Rai_krfdkv.mp4",
+        category: "Social Media Growth",
+        brand: "Little Joys",
+        duration: 150
     },
     {
         id: 3,
@@ -229,13 +229,13 @@ const workVideosForPage = [
     },
     {
         id: 8,
-        title: "Serving Knowledge, One Bite at a Time",
-        description: "We create ad campaigns that make food & nutrition education engaging and easy to understand. From healthy eating tips to lifestyle insights, our content informs, inspires, and empowers your audience to make smarter choices.",
-        thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514903/LJ_INF_Rashmi_Rai_krfdkv.jpg",
-        videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514903/LJ_INF_Rashmi_Rai_krfdkv.mp4",
-        category: "Social Media Growth",
-        brand: "Little Joys",
-        duration: 150
+        title: "Influencer Success Stories",
+        description: "See how our strategic approach helps influencers and brands create authentic connections that convert",
+        thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1695234567/SpaceLines_X_Marketing_LAB_Assignment_2_zenqdc.jpg",
+        videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1695234567/SpaceLines_X_Marketing_LAB_Assignment_2_zenqdc.mp4",
+        category: "Sales Conversions",
+        brand: "Spacelines",
+        duration: 180
     },
     {
         id: 9,
@@ -354,19 +354,19 @@ const footerLinks = [
     {
         title: "Services",
         links: [
-            { name: "Influencer Matching", href: "#services", external: false },
-            { name: "Content Creation", href: "#services", external: false },
-            { name: "Campaign Management", href: "#services", external: false },
-            { name: "Brand Strategy", href: "#services", external: false }
+            { name: "Influencer Matching", href: "/services", external: false },
+            { name: "Content Creation", href: "/services", external: false },
+            { name: "Campaign Management", href: "/services", external: false },
+            { name: "Brand Strategy", href: "/services", external: false }
         ]
     },
     {
         title: "Support",
         links: [
-            { name: "Contact Us", href: "#contact", external: false },
-            { name: "Help Center", href: "#help", external: false },
-            { name: "Book a Demo", href: "#demo", external: false },
-            { name: "Get Started", href: "#get-started", external: false }
+            { name: "Contact Us", href: "mailto:connect@fluenzy.in", external: false },
+            { name: "Help Center", href: "mailto:connect@fluenzy.in", external: false },
+            { name: "Book a Demo", href: "/brand-onboarding", external: false },
+            { name: "Get Started", href: "/brand-onboarding", external: false }
         ]
     }
 ]

@@ -11,6 +11,7 @@ import Layout from "./pages/Dasboard/Layout";
 import { PrivacyPolicy, TermsOfService, CookiePolicy, Disclaimer } from "./pages/Legal";
 import VideoTest from "./components/VideoTest";
 import ScrollToTop from "./components/ScrollToTop";
+import Services from "./pages/Services";
 // import NotFound from "./pages/NotFound";
 
 
@@ -32,6 +33,8 @@ const App = () => (
           <Route path="/cookie-policy" element={<CookiePolicy />} />
           <Route path="/disclaimer" element={<Disclaimer />} />
           <Route path="/video-test" element={<VideoTest />} />
+          <Route path="/services" element={<Services />} />
+          
           {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>
       </BrowserRouter>
