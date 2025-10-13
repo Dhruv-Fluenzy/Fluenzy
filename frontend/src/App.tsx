@@ -12,7 +12,7 @@ import { PrivacyPolicy, TermsOfService, CookiePolicy, Disclaimer } from "./pages
 import VideoTest from "./components/VideoTest";
 import ScrollToTop from "./components/ScrollToTop";
 import Services from "./pages/Services";
-// import NotFound from "./pages/NotFound";
+import NotFound from "./pages/NotFound";
 
 
 const App = () => (
@@ -25,17 +25,18 @@ const App = () => (
           <Route path="/all-work" element={<AllWork />} />
           <Route path="/brand-onboarding" element={<BrandOnboarding />} />
           <Route path="/fluencer-onboarding" element={<FluencerOnboarding />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<Layout />} />
+          {/* <Route path="/register" element={<Register />} /> */}
+          {/* <Route path="/login" element={<Login />} /> */}
+          {/* <Route path="/dashboard" element={<Layout />} /> */}
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/cookie-policy" element={<CookiePolicy />} />
-          <Route path="/disclaimer" element={<Disclaimer />} />
-          <Route path="/video-test" element={<VideoTest />} />
+          <Route path="/disclaimer" element={<Disclaimer />} />          
+          {/* <Route path="/video-test" element={<VideoTest />} /> */}
           <Route path="/services" element={<Services />} />
           
-          {/* <Route path="*" element={<NotFound />} /> */}
+          {/* Catch-all route for 404 - must be last */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
 

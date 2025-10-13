@@ -1,12 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import Badge from "../../components/Badge";
 import SimpleHeroHeading from "../../components/SimpleHeroHeading";
 import ParticleBackground from "../../components/ParticleBackground";
-// import HeroHeading from "../../components/HeroHeading" // Complex version with gradients
-// import AnimationShowcase from "../../components/AnimationShowcase" // For testing different animations
-import { Check, Star } from "lucide-react";
-import Button from "../../components/Button";
 import StatsGrid from "../../components/StatsGrid";
 
 const Hero = () => {
@@ -81,25 +76,6 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.4, ease: "easeOut" }}
           >
-            {/* Divider */}
-            {/* <div className="hidden sm:block w-px h-4 bg-border"></div> */}
-
-            {/* Rating */}
-            {/* <div className="flex items-center gap-2 text-sm">
-              <div className="flex items-center gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 1.6 + i * 0.1, type: "spring", stiffness: 400, damping: 17 }}
-                  >
-                    <Star className="size-4 fill-yellow-400 text-yellow-400" />
-                  </motion.div>
-                ))}
-              </div>
-              <span className="text-muted-foreground">Rated 5.0 by 100+ brands</span>
-            </div> */}
           </motion.div>
           {/* Statistics Grid */}
           <motion.div
@@ -111,15 +87,6 @@ const Hero = () => {
             <StatsGrid />
           </motion.div>
         </motion.div>
-        {/* Image div */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2, ease: "easeInOut" }}
-          className="text-center mx-auto max-w-6xl  shadow-md rounded-lg overflow-hidden "
-        >
-          <img src="https://cdn.dribbble.com/userupload/12302729/file/original-fa372845e394ee85bebe0389b9d86871.png?resize=1504x1128&vertical=center" alt="hero" />
-        </motion.div> */}
       </div>
     </section>
   );
