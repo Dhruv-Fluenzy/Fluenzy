@@ -86,7 +86,7 @@ const stats = [
         value: "10+",
         title: "Nano Fluencers",
         description: "Ready to create polished content for your brand"
-    },    {
+    }, {
         value: "24Hr",
         title: "Fastest Delivery",
         description: "Get polished content in just one day\n(T&Cs applied)"
@@ -94,66 +94,66 @@ const stats = [
 
 ]
 
-const workVideos = [    {
-        id: 1,
-        title: "Premium Content Creation Showcase",
-        description: "Watch how we transform brand stories into engaging content that captivates audiences and drives real results",
-        thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/so_0/v1758377014/IMG_5033_u9xof5.jpg",
-        videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1758377014/IMG_5033_u9xof5.mp4",
-        category: "Brand Awareness",
-        brand: "Spacelines",
-        duration: 165
-    },
-    {
-        id: 2,
-        title: "Serving Knowledge, One Bite at a Time",
-        description: "We create ad campaigns that make food & nutrition education engaging and easy to understand. From healthy eating tips to lifestyle insights, our content informs, inspires, and empowers your audience to make smarter choices.",
-        thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514903/LJ_INF_Rashmi_Rai_krfdkv.jpg",
-        videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514903/LJ_INF_Rashmi_Rai_krfdkv.mp4",
-        category: "Social Media Growth",
-        brand: "Little Joys",
-        duration: 150
-    },
-    {
-        id: 3,
-        title: "Crafting Stunning Beauty & Lifestyle Ads That Inspire",
-        description: "Bring your brand to life with captivating visuals and stories that connect. From minimal elegance to bold lifestyle narratives, we design ad content that makes your product shine and your audience engage.",
-        thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514911/TEST_Graphic_video_usazd3.jpg",
-        videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514911/TEST_Graphic_video_usazd3.mp4",
-        category: "Brand Awareness",
-        brand: "mCaffeine",
-        duration: 195
-    },
-    {
-        id: 4,
-        title: "Redefining Men’s Health Through Impactful Ads",
-        description: "We craft powerful campaigns that break the silence around men’s health—making wellness, strength, and self-care relatable. From awareness to action, our ads help brands connect with men in a way that’s authentic, inspiring, and results-driven.",
-        thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514909/Akhilesh_Original_1_odzymr.jpg",
-        videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514909/Akhilesh_Original_1_odzymr.mp4",
-        category: "Brand Awareness",
-        brand: "Man Matters",
-        duration: 240
-    },
-    {
-        id: 5,
-        title: "Turning Nutrition Into Stories That Educate & Engage",
-        description: " We craft ad content that blends knowledge with creativity—making food & nutrition education simple, relatable, and inspiring. From healthy eating tips to lifestyle-driven campaigns, we help brands inform while they grow.",
-        thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514909/Revant_LJ_1_dqxm7k.jpg",
-        videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514909/Revant_LJ_1_dqxm7k.mp4",
-        category: "Social Media Growth",
-        brand: "Little Joys",
-        duration: 210
-    },
-    {
-        id: 6,
-        title: "From Hair Woes to Hair Goals – We Create Ads That Solve",
-        description: "We design beauty & personal care ad campaigns that connect with real concerns—like hair fall, dryness, or damage—and showcase solutions that feel authentic and inspiring. Turning everyday struggles into powerful stories that build trust and boost your brand.",
-        thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514908/Pony_tail_Vector_pzdogm.jpg",
-        videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514908/Pony_tail_Vector_pzdogm.mp4",
-        category: "Sales Conversions",
-        brand: "Be Bodywise",
-        duration: 150
-    },
+const workVideos = [{
+    id: 1,
+    title: "Premium Content Creation Showcase",
+    description: "Watch how we transform brand stories into engaging content that captivates audiences and drives real results",
+    thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/so_0/v1758377014/IMG_5033_u9xof5.jpg",
+    videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1758377014/IMG_5033_u9xof5.mp4",
+    category: "Brand Awareness",
+    brand: "Spacelines",
+    duration: 165
+},
+{
+    id: 2,
+    title: "Serving Knowledge, One Bite at a Time",
+    description: "We create ad campaigns that make food & nutrition education engaging and easy to understand. From healthy eating tips to lifestyle insights, our content informs, inspires, and empowers your audience to make smarter choices.",
+    thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514903/LJ_INF_Rashmi_Rai_krfdkv.jpg",
+    videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514903/LJ_INF_Rashmi_Rai_krfdkv.mp4",
+    category: "Social Media Growth",
+    brand: "Little Joys",
+    duration: 150
+},
+{
+    id: 3,
+    title: "Crafting Stunning Beauty & Lifestyle Ads That Inspire",
+    description: "Bring your brand to life with captivating visuals and stories that connect. From minimal elegance to bold lifestyle narratives, we design ad content that makes your product shine and your audience engage.",
+    thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514911/TEST_Graphic_video_usazd3.jpg",
+    videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514911/TEST_Graphic_video_usazd3.mp4",
+    category: "Brand Awareness",
+    brand: "mCaffeine",
+    duration: 195
+},
+{
+    id: 4,
+    title: "Redefining Men’s Health Through Impactful Ads",
+    description: "We craft powerful campaigns that break the silence around men’s health—making wellness, strength, and self-care relatable. From awareness to action, our ads help brands connect with men in a way that’s authentic, inspiring, and results-driven.",
+    thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514909/Akhilesh_Original_1_odzymr.jpg",
+    videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514909/Akhilesh_Original_1_odzymr.mp4",
+    category: "Brand Awareness",
+    brand: "Man Matters",
+    duration: 240
+},
+{
+    id: 5,
+    title: "Turning Nutrition Into Stories That Educate & Engage",
+    description: " We craft ad content that blends knowledge with creativity—making food & nutrition education simple, relatable, and inspiring. From healthy eating tips to lifestyle-driven campaigns, we help brands inform while they grow.",
+    thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514909/Revant_LJ_1_dqxm7k.jpg",
+    videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514909/Revant_LJ_1_dqxm7k.mp4",
+    category: "Social Media Growth",
+    brand: "Little Joys",
+    duration: 210
+},
+{
+    id: 6,
+    title: "From Hair Woes to Hair Goals – We Create Ads That Solve",
+    description: "We design beauty & personal care ad campaigns that connect with real concerns—like hair fall, dryness, or damage—and showcase solutions that feel authentic and inspiring. Turning everyday struggles into powerful stories that build trust and boost your brand.",
+    thumbnail: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514908/Pony_tail_Vector_pzdogm.jpg",
+    videoUrl: "https://res.cloudinary.com/dv1icpqhw/video/upload/v1759514908/Pony_tail_Vector_pzdogm.mp4",
+    category: "Sales Conversions",
+    brand: "Be Bodywise",
+    duration: 150
+},
 ]
 
 const workVideosForPage = [
@@ -281,20 +281,20 @@ const workVideosForPage = [
 
 
 // Logo showcase section
-  const logoIconsList = [
+const logoIconsList = [
     {
-      imgPath: "/images/logos/company-logo-1.png",
+        imgPath: "/images/logos/company-logo-1.png",
     },
     {
-      imgPath: "/images/logos/company-logo-2.png",
+        imgPath: "/images/logos/company-logo-2.png",
     },
     {
-      imgPath: "/images/logos/company-logo-3.png",
+        imgPath: "/images/logos/company-logo-3.png",
     },
     {
-      imgPath: "/images/logos/company-logo-4.png",
+        imgPath: "/images/logos/company-logo-4.png",
     },
-  ];
+];
 
 const whatWeDoServices = [
     {
@@ -351,13 +351,13 @@ const footerLinks = [
 const socialLinks = [
     {
         name: "Instagram",
-        href: "https://instagram.com/fluenzy.in",
+        href: "https://instagram.com/",
         external: true,
         icon: "Instagram"
     },
     {
         name: "LinkedIn",
-        href: "https://linkedin.com/company/fluenzy",
+        href: "https://linkedin.com/",
         external: true,
         icon: "Linkedin"
     },
@@ -404,53 +404,293 @@ const fluencersBenefits = [
 ]
 
 // Services page
-    const sections = [
-        {
-          title: "Influencer Matching",
-          content: [
+const sections = [
+    {
+        title: "Influencer Matching",
+        content: [
             "Finding the right influencers for your brand is critical. At Fluenzy, we go beyond just numbers — we connect your brand with influencers who genuinely resonate with your target audience.",
             "Tailored Selection: We analyze your brand’s niche, product category, and audience demographics to handpick influencers who will create authentic engagement.",
             "Diverse Influencer Pool: Our network includes micro and mid-tier influencers across multiple industries.",
             "Transparent Collaboration: Influencer rates, deliverables, and timelines are clearly defined upfront to ensure smooth execution.",
             "Performance Alignment: We prioritize influencers whose content style and engagement metrics align with your campaign goals.",
             "Outcome: Your campaigns reach the right people, in the right tone, with influencers who truly connect with your brand values."
-          ]
-        },
-        {
-          title: "Content Creation",
-          content: [
+        ]
+    },
+    {
+        title: "Content Creation",
+        content: [
             "Scroll-stopping content is the backbone of every successful influencer campaign. We ensure your brand content is not only polished but strategically designed to convert.",
             "Creative Ideation & Scripting: We transform your brief into highly engaging content concepts, scripts, and storyboards for reels, shorts, and posts.",
             "Professional Editing & Production: Our in-house editing ensures all visuals are top-quality, on-brand, and optimized for social media performance.",
             "Consistency & Quality Control: Every piece of content undergoes rigorous review before delivery to maintain a high standard and cohesive brand voice.",
             "Platform-Optimized: Content is tailored for each social platform to maximize reach, engagement, and impact.",
             "Outcome: Your brand consistently produces professional, high-quality content that stands out in crowded feeds and drives audience action."
-          ]
-        },
-        {
-          title: "Campaign Management",
-          content: [
+        ]
+    },
+    {
+        title: "Campaign Management",
+        content: [
             "Executing influencer campaigns is complex. Fluenzy handles the full cycle, ensuring you get results without the operational headaches.",
             "End-to-End Workflow: From brand brief to influencer onboarding, content creation, editing, approvals, and final delivery — we manage every step.",
             "Timelines & Deliverables: We set clear milestones and track progress to make sure campaigns are delivered on time and within budget.",
             "Performance Tracking & Reporting: Campaign analytics and engagement metrics are monitored and shared with you to measure ROI.",
             "Problem-Solving & Adjustments: If something isn’t working, we quickly pivot strategies to ensure campaign objectives are met.",
             "Outcome: Hassle-free campaigns with measurable results, allowing your team to focus on core business while we handle execution."
-          ]
-        },
-        {
-          title: "Brand Strategy",
-          content: [
+        ]
+    },
+    {
+        title: "Brand Strategy",
+        content: [
             "Influencer marketing is only effective when it aligns with a strong brand strategy. We help SMBs build a lasting social presence with data-driven guidance.",
             "Audience & Positioning: We define your target audience, tone, and messaging to ensure every campaign resonates.",
             "Campaign Planning & Alignment: All campaigns are designed to achieve specific business objectives — awareness, engagement, or conversions.",
             "Insights & Optimization: We provide actionable feedback on campaign performance to refine your future strategies.",
             "Long-Term Growth Focus: Beyond individual campaigns, we help position your brand for sustained social media growth and influence.",
             "Outcome: Your brand campaigns are strategic, measurable, and designed for growth, not just random posts."
-          ]
-        }
-      ]
+        ]
+    }
+]
 
+// Legal Pages 
+
+const CookieSections = [
+    {
+        title: "1. What Are Cookies?",
+        content: [
+            "Cookies are small text files stored on your device by your browser. They help websites remember your preferences, login status, and how you interact with the site."
+        ]
+    },
+    {
+        title: "2. Types of Cookies We Use",
+        content: [
+            "Essential Cookies: Required for basic site functionality (e.g., login, page navigation).",
+            "Analytics / Performance Cookies: Track website usage to help us improve the site (e.g., Google Analytics).",
+            "Marketing / Advertising Cookies: Help us display relevant promotions or track ad campaigns."
+        ]
+    },
+    {
+        title: "3. How We Use Cookies",
+        content: [
+            "• Analyze site traffic and performance.",
+            "• Improve website functionality and user experience.",
+            "• Tailor content and promotions to user interests.",
+            "• Measure effectiveness of marketing campaigns."
+        ]
+    },
+    {
+        title: "4. Third-Party Cookies",
+        content: [
+            "We may use third-party services such as Google Analytics, Meta Pixel, or advertising networks that set their own cookies. Fluenzy.in is not responsible for how third parties handle data."
+        ]
+    },
+    {
+        title: "5. Managing Cookies",
+        content: [
+            "You can control or disable cookies via your browser settings. Note that disabling cookies may affect the functionality of the site."
+        ]
+    },
+    {
+        title: "6. Changes to This Policy",
+        content: [
+            "We may update this Cookie Policy from time to time. Updated versions will be posted on this page with a new \"Last updated\" date."
+        ]
+    },
+    {
+        title: "7. Contact Us",
+        content: [
+            "For questions regarding our Cookie Policy, contact us at:",
+            "support@fluenzy.in"
+        ]
+    }
+]
+
+
+const DisclaimerSection = [
+    {
+        title: "1. No Guaranteed Results",
+        content: [
+            "Fluenzy.in connects brands with influencers and provides content creation services. We do not guarantee specific results, sales, engagement, or return on investment from any campaign. All campaign performance depends on multiple factors, including influencer audience behavior, platform algorithms, and brand execution."
+        ]
+    },
+    {
+        title: "2. Third-Party Content & Links",
+        content: [
+            "Our website may include links to third-party websites or content. Fluenzy.in is not responsible for the accuracy, legality, or content of these external sites. Accessing external sites is done at your own risk."
+        ]
+    },
+    {
+        title: "3. Responsibility of Users",
+        content: [
+            "Brands and influencers are responsible for ensuring that their campaigns comply with applicable laws, regulations, and platform guidelines (e.g., ASCI, FTC, or social media rules). Users agree to not hold fluenzy.in liable for any disputes, claims, or damages arising from campaigns."
+        ]
+    },
+    {
+        title: "4. Limitation of Liability",
+        content: [
+            "Fluenzy.in, its owners, or employees shall not be liable for any direct, indirect, incidental, or consequential damages arising from the use of the site or services."
+        ]
+    },
+    {
+        title: "5. Changes to this Disclaimer",
+        content: [
+            "Fluenzy.in may update this Disclaimer at any time without prior notice. The latest version will always be posted on this page."
+        ]
+    },
+    {
+        title: "6. Contact Us",
+        content: [
+            "If you have questions about this Disclaimer, contact us at:",
+            "support@fluenzy.in"
+        ]
+    }
+]
+
+const PrivacyPolicySections = [
+    {
+        title: "1. Information We Collect",
+        content: [
+            "Personal Information: name, email address, phone number, social media handles, brand details, influencer profiles.",
+            "Content Information: influencer content submissions, brand campaign briefs, communication history.",
+            "Technical Information: IP address, browser type, device information, cookies, analytics data."
+        ]
+    },
+    {
+        title: "2. How We Use Your Information",
+        content: [
+            "Connect brands with influencers.",
+            "Facilitate collaborations and campaigns.",
+            "Improve and personalize our services.",
+            "Send updates, promotional emails, and service-related communications.",
+            "Ensure compliance with applicable laws."
+        ]
+    },
+    {
+        title: "3. Sharing of Information",
+        content: [
+            "We do not sell your personal information. We may share information with:",
+            "Service Providers: third-party tools (e.g., email platforms, analytics, hosting).",
+            "Business Partners: brands and influencers, only as necessary to facilitate collaborations.",
+            "Legal & Safety: if required by law or to protect our rights, safety, and property."
+        ]
+    },
+    {
+        title: "4. Cookies & Tracking",
+        content: [
+            "We use cookies, pixels, and analytics tools (like Google Analytics) to understand how visitors use our site and improve functionality. You can disable cookies through your browser, but some features may not work properly."
+        ]
+    },
+    {
+        title: "5. Data Retention",
+        content: [
+            "We retain your information as long as necessary to provide our services and comply with legal obligations. You may request deletion of your data at any time by contacting us."
+        ]
+    },
+    {
+        title: "6. Your Rights",
+        content: [
+            "Depending on your location, you may have rights to:",
+            "Access, update, or delete your information.",
+            "Opt out of promotional emails.",
+            "Request a copy of the data we hold about you.",
+            "To exercise these rights, contact us at: support@fluenzy.in"
+        ]
+    },
+    {
+        title: "7. Security",
+        content: [
+            "We use reasonable technical and organizational measures to protect your data, but no online system is 100% secure."
+        ]
+    },
+    {
+        title: "8. Children's Privacy",
+        content: [
+            "Our services are not directed to children under 13 (or 16 in some regions). We do not knowingly collect data from children."
+        ]
+    },
+    {
+        title: "9. Changes to This Policy",
+        content: [
+            "We may update this Privacy Policy from time to time. Updated versions will be posted on this page with a new \"Last updated\" date."
+        ]
+    },
+    {
+        title: "10. Contact Us",
+        content: [
+            "If you have questions about this Privacy Policy, contact us at:",
+            "Fluenzy.in",
+            "Email: support@fluenzy.in",
+            "Website: fluenzy.in"
+        ]
+    }
+]
+
+const TermsOfServiceSections = [
+    {
+        title: "1. Acceptance of Terms",
+        content: [
+            "By using fluenzy.in's website or services, you agree to these Terms. If you do not agree, you must not use our site or services."
+        ]
+    },
+    {
+        title: "2. Services",
+        content: [
+            "fluenzy.in connects brands with influencers and creators. We may update, modify, or discontinue parts of our services at any time without prior notice."
+        ]
+    },
+    {
+        title: "3. User Accounts",
+        content: [
+            "You may be required to create an account to access certain features. You are responsible for maintaining the confidentiality of your login credentials. You agree to provide accurate and up-to-date information."
+        ]
+    },
+    {
+        title: "4. Content",
+        content: [
+            "Your Content: Any materials (videos, posts, etc.) you submit remain yours, but you grant fluenzy.in a non-exclusive, royalty-free license to use, display, and distribute them as part of delivering our services.",
+            "Our Content: All materials on this site (designs, text, graphics, etc.) are owned by or licensed to fluenzy.in. You may not use them without prior written permission."
+        ]
+    },
+    {
+        title: "5. Prohibited Activities",
+        content: [
+            "When using our site/services, you agree not to:",
+            "• Violate any laws or regulations.",
+            "• Impersonate any person or entity.",
+            "• Interfere with or disrupt the functionality of our services.",
+            "• Attempt unauthorized access to our systems."
+        ]
+    },
+    {
+        title: "6. Payment & Fees",
+        content: [
+            "If you enter into paid collaborations, campaign fees, or subscriptions with fluenzy.in, payment terms will be outlined separately in your agreement or invoice. All payments are non-refundable unless stated otherwise."
+        ]
+    },
+    {
+        title: "7. Limitation of Liability",
+        content: [
+            "fluenzy.in will not be liable for indirect, incidental, or consequential damages, any loss of profits, data, or business opportunities, or third-party actions, including influencers, brands, or platforms. Our liability is limited to the maximum extent permitted by law."
+        ]
+    },
+    {
+        title: "8. Termination",
+        content: [
+            "We may suspend or terminate your access to our site/services at our discretion, with or without cause."
+        ]
+    },
+    {
+        title: "9. Governing Law",
+        content: [
+            "These Terms are governed by and construed in accordance with the laws of India. Any disputes shall be resolved exclusively in the courts of Guwahati, Assam."
+        ]
+    },
+    {
+        title: "10. Contact Us",
+        content: [
+            "For any questions about these Terms, contact us at: support@fluenzy.in"
+        ]
+    }
+]
 export {
     features,
     steps,
@@ -464,5 +704,10 @@ export {
     socialLinks,
     legalLinks,
     fluencersBenefits,
-    sections
+    sections,
+    // legal pages
+    CookieSections,
+    DisclaimerSection,
+    PrivacyPolicySections,
+    TermsOfServiceSections
 };

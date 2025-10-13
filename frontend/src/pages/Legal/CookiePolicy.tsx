@@ -2,58 +2,10 @@ import { motion } from "framer-motion"
 import Badge from "@/components/Badge"
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
+import { CookieSections } from "@/constants"
 
 const CookiePolicy = () => {
-  const sections = [
-    {
-      title: "1. What Are Cookies?",
-      content: [
-        "Cookies are small text files stored on your device by your browser. They help websites remember your preferences, login status, and how you interact with the site."
-      ]
-    },
-    {
-      title: "2. Types of Cookies We Use",
-      content: [
-        "Essential Cookies: Required for basic site functionality (e.g., login, page navigation).",
-        "Analytics / Performance Cookies: Track website usage to help us improve the site (e.g., Google Analytics).",
-        "Marketing / Advertising Cookies: Help us display relevant promotions or track ad campaigns."
-      ]
-    },
-    {
-      title: "3. How We Use Cookies",
-      content: [
-        "• Analyze site traffic and performance.",
-        "• Improve website functionality and user experience.",
-        "• Tailor content and promotions to user interests.",
-        "• Measure effectiveness of marketing campaigns."
-      ]
-    },
-    {
-      title: "4. Third-Party Cookies",
-      content: [
-        "We may use third-party services such as Google Analytics, Meta Pixel, or advertising networks that set their own cookies. Fluenzy.in is not responsible for how third parties handle data."
-      ]
-    },
-    {
-      title: "5. Managing Cookies",
-      content: [
-        "You can control or disable cookies via your browser settings. Note that disabling cookies may affect the functionality of the site."
-      ]
-    },
-    {
-      title: "6. Changes to This Policy",
-      content: [
-        "We may update this Cookie Policy from time to time. Updated versions will be posted on this page with a new \"Last updated\" date."
-      ]
-    },
-    {
-      title: "7. Contact Us",
-      content: [
-        "For questions regarding our Cookie Policy, contact us at:",
-        "support@fluenzy.in"
-      ]
-    }
-  ]
+
 
   return (
     <div className="min-h-screen">
@@ -101,7 +53,7 @@ const CookiePolicy = () => {
             transition={{ duration: 0.7, delay: 0.6, ease: "easeInOut" }}
             className="max-w-4xl mx-auto space-y-8"
           >
-            {sections.map((section, index) => (
+            {CookieSections.map((section, index) => (
               <motion.div
                 key={section.title}
                 initial={{ opacity: 0, y: 20 }}

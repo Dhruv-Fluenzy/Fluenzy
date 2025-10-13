@@ -6,6 +6,7 @@ import Footer from "../components/Footer"
 import Badge from "../components/Badge"
 import VideoCard from "../components/VideoCard"
 import VideoModal from "../components/VideoModal"
+import FilterableVideoCarousel from "../components/FilterableVideoCarousel"
 import { workVideosForPage } from "../constants"
 
 interface Video {
@@ -19,17 +20,11 @@ interface Video {
   duration: number
 }
 
-/*
-id: number; title: string; description: string; thumbnail: string; videoUrl: string; category: string; brand: string; duration: number; } 
-*/
 
-
-const AllWork = () => {
-  const [selectedVideo, setSelectedVideo] = useState<Video | null>(null)
+const AllWork = () => {  const [selectedVideo, setSelectedVideo] = useState<Video | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [filter, setFilter] = useState<string>("All")
   const [searchQuery, setSearchQuery] = useState<string>("")
-  const [mobileVideoIndex, setMobileVideoIndex] = useState(0)
 
   // Get unique categories for filtering
   const categories = ["All", ...Array.from(new Set(workVideosForPage.map(video => video.category)))]
@@ -43,19 +38,10 @@ const AllWork = () => {
       video.brand.toLowerCase().includes(searchQuery.toLowerCase())
     
     return matchesCategory && matchesSearch
-  })
-  // Clear search when filter changes
+  })  // Clear search when filter changes
   useEffect(() => {
     setSearchQuery("")
-    setMobileVideoIndex(0) // Reset to first video when filter changes
   }, [filter])
-
-  // Reset mobile video index when filtered videos change
-  useEffect(() => {
-    if (mobileVideoIndex >= filteredVideos.length) {
-      setMobileVideoIndex(0)
-    }
-  }, [filteredVideos.length, mobileVideoIndex])
 
   const handleVideoClick = (video: Video) => {
   setSelectedVideo(video)
@@ -219,168 +205,19 @@ const AllWork = () => {
         </div>
       </section>      {/* Video Grid Section */}
       <section className="w-full pb-20 md:pb-32 lg:pb-40">
-        <div className="container-div">
-          <motion.div
+        <div className="container-div">          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7, ease: "easeInOut" }}
-          >            {/* Mobile View - Instagram-like Single Video Display */}
+          >
+            {/* Mobile View - Instagram-like Video Player */}
             <div className="block md:hidden">
-              {filteredVideos.length > 0 ? (
-                <div className="w-full max-w-sm mx-auto">
-                  {/* Main Video Container */}
-                  <div 
-                    className="relative bg-black rounded-2xl overflow-hidden shadow-2xl mb-4"
-                    style={{ aspectRatio: '9/16' }}
-                  >
-                    {/* Current Video */}
-                    <motion.div
-                      key={mobileVideoIndex}
-                      initial={{ opacity: 0, scale: 1.1 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.9 }}
-                      transition={{ duration: 0.3 }}
-                      className="relative w-full h-full cursor-pointer"
-                      onClick={() => handleVideoClick(filteredVideos[mobileVideoIndex])}
-                    >
-                      <img 
-                        src={filteredVideos[mobileVideoIndex].thumbnail} 
-                        alt={filteredVideos[mobileVideoIndex].title}
-                        className="w-full h-full object-cover"
-                      />
-                      
-                      {/* Gradient Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
-
-                      {/* Play Button */}
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <motion.div
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.95 }}
-                          className="bg-white/90 backdrop-blur-sm rounded-full p-4 shadow-lg"
-                        >
-                          <svg className="w-8 h-8 ml-1 text-black" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8 5v14l11-7z"/>
-                          </svg>
-                        </motion.div>
-                      </div>
-
-                      {/* Top Content */}
-                      <div className="absolute top-4 left-4 right-4 flex justify-between items-start">
-                        <div className="flex gap-2">
-                          <span className="bg-primary px-2 py-1 rounded-full text-xs font-medium text-white">
-                            {filteredVideos[mobileVideoIndex].category}
-                          </span>
-                          <span className="bg-white/20 backdrop-blur-sm px-2 py-1 rounded-full text-xs font-medium text-white">
-                            {filteredVideos[mobileVideoIndex].brand}
-                          </span>
-                        </div>
-                        
-                        {/* Duration */}
-                        <div className="bg-black/60 backdrop-blur-sm text-white text-xs font-medium px-2 py-1 rounded-full flex items-center gap-1">
-                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <circle cx="12" cy="12" r="10"/>
-                            <polyline points="12,6 12,12 16,14"/>
-                          </svg>
-                          <span>{Math.floor(filteredVideos[mobileVideoIndex].duration / 60)}:{(filteredVideos[mobileVideoIndex].duration % 60).toString().padStart(2, '0')}</span>
-                        </div>
-                      </div>
-
-                      {/* Bottom Content */}
-                      <div className="absolute bottom-0 left-0 right-0 p-4">
-                        <div className="text-white mb-3">
-                          <h3 className="font-semibold text-lg mb-1 line-clamp-2">
-                            {filteredVideos[mobileVideoIndex].title}
-                          </h3>
-                          <p className="text-sm text-white/80 line-clamp-2">
-                            {filteredVideos[mobileVideoIndex].description}
-                          </p>
-                        </div>
-                      </div>
-
-                      {/* Navigation Hint Areas */}
-                      {filteredVideos.length > 1 && (
-                        <>
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation()
-                              setMobileVideoIndex((prev) => (prev - 1 + filteredVideos.length) % filteredVideos.length)
-                            }}
-                            className="absolute left-0 top-0 w-1/3 h-full bg-transparent flex items-center justify-start pl-2"
-                            aria-label="Previous video"
-                          >
-                            <div className="w-8 h-16 bg-gradient-to-r from-white/10 to-transparent rounded-r-lg opacity-0 hover:opacity-100 transition-opacity" />
-                          </button>
-                          
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation()
-                              setMobileVideoIndex((prev) => (prev + 1) % filteredVideos.length)
-                            }}
-                            className="absolute right-0 top-0 w-1/3 h-full bg-transparent flex items-center justify-end pr-2"
-                            aria-label="Next video"
-                          >
-                            <div className="w-8 h-16 bg-gradient-to-l from-white/10 to-transparent rounded-l-lg opacity-0 hover:opacity-100 transition-opacity" />
-                          </button>
-                        </>
-                      )}
-                    </motion.div>
-                  </div>
-
-                  {/* Progress Dots */}
-                  {filteredVideos.length > 1 && (
-                    <div className="flex justify-center gap-1 mb-4 px-4 overflow-x-auto scrollbar-hide">
-                      {filteredVideos.map((_, index) => (
-                        <button
-                          key={index}
-                          onClick={() => setMobileVideoIndex(index)}
-                          className={`flex-shrink-0 w-2 h-2 rounded-full transition-all duration-300 ${
-                            mobileVideoIndex === index
-                              ? "bg-primary scale-125"
-                              : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
-                          }`}
-                          aria-label={`Go to video ${index + 1}`}
-                        />
-                      ))}
-                    </div>
-                  )}
-
-                  {/* Video Counter and Navigation */}
-                  <div className="text-center text-sm text-muted-foreground mb-4">
-                    Video {mobileVideoIndex + 1} of {filteredVideos.length}
-                  </div>
-                  
-                  {filteredVideos.length > 1 && (
-                    <div className="flex gap-2 justify-center">
-                      <button
-                        onClick={() => setMobileVideoIndex((prev) => (prev - 1 + filteredVideos.length) % filteredVideos.length)}
-                        className="px-4 py-2 bg-background border border-border rounded-lg hover:border-primary/50 hover:bg-primary/5 transition-all duration-300"
-                      >
-                        Previous
-                      </button>
-                      <button
-                        onClick={() => setMobileVideoIndex((prev) => (prev + 1) % filteredVideos.length)}
-                        className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all duration-300"
-                      >
-                        Next
-                      </button>
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <div className="text-center py-20">
-                  <div className="text-6xl mb-4">🎬</div>
-                  <h3 className="text-2xl font-semibold text-foreground mb-2">
-                    No projects found
-                  </h3>
-                  <p className="text-muted-foreground">
-                    Try selecting a different category to see our work.
-                  </p>
-                </div>
-              )}
+              <div className="max-w-7xl mx-auto">
+                <FilterableVideoCarousel videos={filteredVideos} />
+              </div>
             </div>
 
-            {/* Desktop View - Grid Layout */}
+            {/* Desktop View - Original Grid Layout */}
             <div className="hidden md:block">
               {filteredVideos.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">

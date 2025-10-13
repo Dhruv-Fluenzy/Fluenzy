@@ -2,8 +2,7 @@ import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react"
 import { workVideos } from "../constants"
-import MobileVideoCard from "./MobileVideoCard"
-import { useSwipeGestures } from "../hooks/useSwipeGestures"
+import InstagramLikeVideoCard from "./InstagramLikeVideoCard"
 
 const MobileVideoCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -34,20 +33,11 @@ const MobileVideoCarousel = () => {
   const toggleAutoPlay = () => {
     setIsAutoPlaying(!isAutoPlaying)
   }
-
-  // Swipe gestures
-  const swipeHandlers = useSwipeGestures({
-    onSwipeLeft: nextSlide,
-    onSwipeRight: prevSlide,
-    threshold: 50
-  })
-
   return (
     <div className="relative w-full max-w-sm mx-auto">      {/* Mobile Story-like Container */}
       <div 
         className="relative bg-black rounded-2xl overflow-hidden shadow-2xl" 
         style={{ aspectRatio: '9/16' }}
-        {...swipeHandlers}
       >
         {/* Progress Bars */}
         <div className="absolute top-2 left-2 right-2 z-20 flex gap-1">
@@ -67,28 +57,13 @@ const MobileVideoCarousel = () => {
               />
             </div>
           ))}
-        </div>
-
-        {/* Auto-play Toggle */}
+        </div>        {/* Auto-play Toggle */}
         <button
           onClick={toggleAutoPlay}
           className="absolute top-4 right-4 z-20 bg-black/50 backdrop-blur-sm text-white p-2 rounded-full"
         >
           {isAutoPlaying ? <Pause className="size-4" /> : <Play className="size-4" />}
         </button>
-
-        {/* Navigation Arrows - Hidden but functional (swipe areas) */}
-        <button
-          onClick={prevSlide}
-          className="absolute left-0 top-0 w-1/3 h-full z-10 bg-transparent"
-          aria-label="Previous video"
-        />
-        
-        <button
-          onClick={nextSlide}
-          className="absolute right-0 top-0 w-1/3 h-full z-10 bg-transparent"
-          aria-label="Next video"
-        />
 
         {/* Video Content */}
         <AnimatePresence mode="wait">
@@ -100,10 +75,12 @@ const MobileVideoCarousel = () => {
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="w-full h-full"
           >
-            <MobileVideoCard
+            <InstagramLikeVideoCard
               video={workVideos[currentIndex]}
               isActive={true}
               onVideoEnd={nextSlide}
+              onSwipeLeft={nextSlide}
+              onSwipeRight={prevSlide}
             />
           </motion.div>
         </AnimatePresence>

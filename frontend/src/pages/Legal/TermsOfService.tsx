@@ -2,75 +2,10 @@ import { motion } from "framer-motion"
 import Badge from "@/components/Badge"
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
+import { TermsOfServiceSections } from "@/constants"
 
 const TermsOfService = () => {
-  const sections = [
-    {
-      title: "1. Acceptance of Terms",
-      content: [
-        "By using fluenzy.in's website or services, you agree to these Terms. If you do not agree, you must not use our site or services."
-      ]
-    },
-    {
-      title: "2. Services",
-      content: [
-        "fluenzy.in connects brands with influencers and creators. We may update, modify, or discontinue parts of our services at any time without prior notice."
-      ]
-    },
-    {
-      title: "3. User Accounts",
-      content: [
-        "You may be required to create an account to access certain features. You are responsible for maintaining the confidentiality of your login credentials. You agree to provide accurate and up-to-date information."
-      ]
-    },
-    {
-      title: "4. Content",
-      content: [
-        "Your Content: Any materials (videos, posts, etc.) you submit remain yours, but you grant fluenzy.in a non-exclusive, royalty-free license to use, display, and distribute them as part of delivering our services.",
-        "Our Content: All materials on this site (designs, text, graphics, etc.) are owned by or licensed to fluenzy.in. You may not use them without prior written permission."
-      ]
-    },
-    {
-      title: "5. Prohibited Activities",
-      content: [
-        "When using our site/services, you agree not to:",
-        "• Violate any laws or regulations.",
-        "• Impersonate any person or entity.",
-        "• Interfere with or disrupt the functionality of our services.",
-        "• Attempt unauthorized access to our systems."
-      ]
-    },
-    {
-      title: "6. Payment & Fees",
-      content: [
-        "If you enter into paid collaborations, campaign fees, or subscriptions with fluenzy.in, payment terms will be outlined separately in your agreement or invoice. All payments are non-refundable unless stated otherwise."
-      ]
-    },
-    {
-      title: "7. Limitation of Liability",
-      content: [
-        "fluenzy.in will not be liable for indirect, incidental, or consequential damages, any loss of profits, data, or business opportunities, or third-party actions, including influencers, brands, or platforms. Our liability is limited to the maximum extent permitted by law."
-      ]
-    },
-    {
-      title: "8. Termination",
-      content: [
-        "We may suspend or terminate your access to our site/services at our discretion, with or without cause."
-      ]
-    },
-    {
-      title: "9. Governing Law",
-      content: [
-        "These Terms are governed by and construed in accordance with the laws of India. Any disputes shall be resolved exclusively in the courts of Guwahati, Assam."
-      ]
-    },
-    {
-      title: "10. Contact Us",
-      content: [
-        "For any questions about these Terms, contact us at: support@fluenzy.in"
-      ]
-    }
-  ]
+
 
   return (
     <div className="min-h-screen">
@@ -118,7 +53,7 @@ const TermsOfService = () => {
             transition={{ duration: 0.7, delay: 0.6, ease: "easeInOut" }}
             className="max-w-4xl mx-auto space-y-8"
           >
-            {sections.map((section, index) => (
+            {TermsOfServiceSections.map((section, index) => (
               <motion.div
                 key={section.title}
                 initial={{ opacity: 0, y: 20 }}

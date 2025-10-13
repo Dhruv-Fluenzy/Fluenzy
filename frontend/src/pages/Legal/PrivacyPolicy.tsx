@@ -2,86 +2,10 @@ import { motion } from "framer-motion"
 import Badge from "@/components/Badge"
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
+import { PrivacyPolicySections } from "@/constants"
 
 const PrivacyPolicy = () => {
-  const sections = [
-    {
-      title: "1. Information We Collect",
-      content: [
-        "Personal Information: name, email address, phone number, social media handles, brand details, influencer profiles.",
-        "Content Information: influencer content submissions, brand campaign briefs, communication history.",
-        "Technical Information: IP address, browser type, device information, cookies, analytics data."
-      ]
-    },
-    {
-      title: "2. How We Use Your Information",
-      content: [
-        "Connect brands with influencers.",
-        "Facilitate collaborations and campaigns.",
-        "Improve and personalize our services.",
-        "Send updates, promotional emails, and service-related communications.",
-        "Ensure compliance with applicable laws."
-      ]
-    },
-    {
-      title: "3. Sharing of Information",
-      content: [
-        "We do not sell your personal information. We may share information with:",
-        "Service Providers: third-party tools (e.g., email platforms, analytics, hosting).",
-        "Business Partners: brands and influencers, only as necessary to facilitate collaborations.",
-        "Legal & Safety: if required by law or to protect our rights, safety, and property."
-      ]
-    },
-    {
-      title: "4. Cookies & Tracking",
-      content: [
-        "We use cookies, pixels, and analytics tools (like Google Analytics) to understand how visitors use our site and improve functionality. You can disable cookies through your browser, but some features may not work properly."
-      ]
-    },
-    {
-      title: "5. Data Retention",
-      content: [
-        "We retain your information as long as necessary to provide our services and comply with legal obligations. You may request deletion of your data at any time by contacting us."
-      ]
-    },
-    {
-      title: "6. Your Rights",
-      content: [
-        "Depending on your location, you may have rights to:",
-        "Access, update, or delete your information.",
-        "Opt out of promotional emails.",
-        "Request a copy of the data we hold about you.",
-        "To exercise these rights, contact us at: support@fluenzy.in"
-      ]
-    },
-    {
-      title: "7. Security",
-      content: [
-        "We use reasonable technical and organizational measures to protect your data, but no online system is 100% secure."
-      ]
-    },
-    {
-      title: "8. Children's Privacy",
-      content: [
-        "Our services are not directed to children under 13 (or 16 in some regions). We do not knowingly collect data from children."
-      ]
-    },
-    {
-      title: "9. Changes to This Policy",
-      content: [
-        "We may update this Privacy Policy from time to time. Updated versions will be posted on this page with a new \"Last updated\" date."
-      ]
-    },
-    {
-      title: "10. Contact Us",
-      content: [
-        "If you have questions about this Privacy Policy, contact us at:",
-        "Fluenzy.in",
-        "Email: support@fluenzy.in",
-        "Website: fluenzy.in"
-      ]
-    }
-  ]
+
 
   return (
     <div className="min-h-screen">
@@ -129,7 +53,7 @@ const PrivacyPolicy = () => {
             transition={{ duration: 0.7, delay: 0.6, ease: "easeInOut" }}
             className="max-w-4xl mx-auto space-y-8"
           >
-            {sections.map((section, index) => (
+            {PrivacyPolicySections.map((section, index) => (
               <motion.div
                 key={section.title}
                 initial={{ opacity: 0, y: 20 }}

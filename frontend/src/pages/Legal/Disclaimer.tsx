@@ -2,47 +2,10 @@ import { motion } from "framer-motion"
 import Badge from "@/components/Badge"
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
+import { DisclaimerSection } from "@/constants"
 
 const Disclaimer = () => {
-  const sections = [
-    {
-      title: "1. No Guaranteed Results",
-      content: [
-        "Fluenzy.in connects brands with influencers and provides content creation services. We do not guarantee specific results, sales, engagement, or return on investment from any campaign. All campaign performance depends on multiple factors, including influencer audience behavior, platform algorithms, and brand execution."
-      ]
-    },
-    {
-      title: "2. Third-Party Content & Links",
-      content: [
-        "Our website may include links to third-party websites or content. Fluenzy.in is not responsible for the accuracy, legality, or content of these external sites. Accessing external sites is done at your own risk."
-      ]
-    },
-    {
-      title: "3. Responsibility of Users",
-      content: [
-        "Brands and influencers are responsible for ensuring that their campaigns comply with applicable laws, regulations, and platform guidelines (e.g., ASCI, FTC, or social media rules). Users agree to not hold fluenzy.in liable for any disputes, claims, or damages arising from campaigns."
-      ]
-    },
-    {
-      title: "4. Limitation of Liability",
-      content: [
-        "Fluenzy.in, its owners, or employees shall not be liable for any direct, indirect, incidental, or consequential damages arising from the use of the site or services."
-      ]
-    },
-    {
-      title: "5. Changes to this Disclaimer",
-      content: [
-        "Fluenzy.in may update this Disclaimer at any time without prior notice. The latest version will always be posted on this page."
-      ]
-    },
-    {
-      title: "6. Contact Us",
-      content: [
-        "If you have questions about this Disclaimer, contact us at:",
-        "support@fluenzy.in"
-      ]
-    }
-  ]
+
 
   return (
     <div className="min-h-screen">
@@ -90,7 +53,7 @@ const Disclaimer = () => {
             transition={{ duration: 0.7, delay: 0.6, ease: "easeInOut" }}
             className="max-w-4xl mx-auto space-y-8"
           >
-            {sections.map((section, index) => (
+            {DisclaimerSection.map((section, index) => (
               <motion.div
                 key={section.title}
                 initial={{ opacity: 0, y: 20 }}

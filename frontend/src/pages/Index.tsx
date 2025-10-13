@@ -2,11 +2,9 @@ import Navbar from "@/components/Navbar";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Companies from "../sections/IndexPage/Companies";
-// import Features from "../sections/IndexPage/Features";
 import Hero from "../sections/IndexPage/Hero";
 import HowItWorks from "../sections/IndexPage/HowItWorks";
 import OurWork from "../sections/IndexPage/OurWork";
-// import UnderDevelopmentPhase from "../sections/IndexPage/UnderDevelopmentPhase";
 import WhatWeDo from "../sections/IndexPage/WhatWeDo";
 import Footer from "@/components/Footer";
 
@@ -31,9 +29,7 @@ const Index = () => {
                 <OurWork />
                 <WhatWeDo />
                 <Companies />
-                {/* <Features /> */}
                 <HowItWorks />
-                {/* <UnderDevelopmentPhase /> */}
             </main>
             {/* footer */}
             <Footer/>
