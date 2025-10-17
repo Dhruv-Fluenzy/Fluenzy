@@ -57,13 +57,8 @@ const MobileVideoCarousel = () => {
               />
             </div>
           ))}
-        </div>        {/* Auto-play Toggle */}
-        <button
-          onClick={toggleAutoPlay}
-          className="absolute top-4 right-4 z-20 bg-black/50 backdrop-blur-sm text-white p-2 rounded-full"
-        >
-          {isAutoPlaying ? <Pause className="size-4" /> : <Play className="size-4" />}
-        </button>
+        </div>        
+        
 
         {/* Video Content */}
         <AnimatePresence mode="wait">
