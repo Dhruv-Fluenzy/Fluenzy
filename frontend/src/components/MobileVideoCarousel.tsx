@@ -1,23 +1,23 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 import { workVideos } from "../constants"
 import InstagramLikeVideoCard from "./InstagramLikeVideoCard"
 
 const MobileVideoCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [isAutoPlaying, setIsAutoPlaying] = useState(false)
+  // const [isAutoPlaying, setIsAutoPlaying] = useState(false)
 
   // Auto-advance slides every 4 seconds when auto-playing
-  useEffect(() => {
-    if (!isAutoPlaying) return
+  // useEffect(() => {
+  //   if (!isAutoPlaying) return
 
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % workVideos.length)
-    }, 4000)
+  //   const interval = setInterval(() => {
+  //     setCurrentIndex((prev) => (prev + 1) % workVideos.length)
+  //   }, 4000)
 
-    return () => clearInterval(interval)
-  }, [isAutoPlaying])
+  //   return () => clearInterval(interval)
+  // }, [isAutoPlaying])
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % workVideos.length)
@@ -30,11 +30,12 @@ const MobileVideoCarousel = () => {
   const goToSlide = (index: number) => {
     setCurrentIndex(index)
   }
-  const toggleAutoPlay = () => {
-    setIsAutoPlaying(!isAutoPlaying)
-  }
+  // const toggleAutoPlay = () => {
+  //   setIsAutoPlaying(!isAutoPlaying)
+  // }
   return (
-    <div className="relative w-full max-w-sm mx-auto">      {/* Mobile Story-like Container */}
+    <div className="relative w-full max-w-sm mx-auto">      
+    {/* Mobile Story-like Container */}
       <div 
         className="relative bg-black rounded-2xl overflow-hidden shadow-2xl" 
         style={{ aspectRatio: '9/16' }}
@@ -46,19 +47,26 @@ const MobileVideoCarousel = () => {
               <motion.div
                 className="h-full bg-white"
                 initial={{ width: index < currentIndex ? "100%" : "0%" }}
-                animate={{ 
-                  width: index < currentIndex ? "100%" : 
-                         index === currentIndex && isAutoPlaying ? "100%" : "0%" 
-                }}
-                transition={{ 
-                  duration: index === currentIndex && isAutoPlaying ? 4 : 0,
-                  ease: "linear"
-                }}
+                // animate={{ 
+                //   width: index < currentIndex ? "100%" : 
+                //          index === currentIndex && isAutoPlaying ? "100%" : "0%" 
+                // }}
+                // transition={{ 
+                //   duration: index === currentIndex && isAutoPlaying ? 4 : 0,
+                //   ease: "linear"
+                // }}
               />
             </div>
           ))}
         </div>        
         
+        {/* Auto-play Toggle
+        <button
+          onClick={toggleAutoPlay}
+          className="absolute top-4 right-4 z-20 bg-black/50 backdrop-blur-sm text-white p-2 rounded-full"
+        >
+          {isAutoPlaying ? <Pause className="size-4" /> : <Play className="size-4" />}
+        </button> */}
 
         {/* Video Content */}
         <AnimatePresence mode="wait">

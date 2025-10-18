@@ -18,7 +18,7 @@ const LogoIcon: React.FC<LogoIconProps> = ({ icon, index }) => {
       <img 
         src={icon.imgPath} 
         alt={`Company logo ${index + 1}`}
-        className="h-6 md:h-11 lg:h-14 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300 filter grayscale hover:grayscale-0"
+        className="h-6 md:h-11 lg:h-14 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300 "
       />
     </div>
   )

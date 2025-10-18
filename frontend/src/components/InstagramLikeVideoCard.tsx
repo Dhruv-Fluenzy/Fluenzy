@@ -30,25 +30,69 @@ const InstagramLikeVideoCard: React.FC<InstagramLikeVideoCardProps> = ({
   const [isPlaying, setIsPlaying] = useState(false)
   const [isMuted, setIsMuted] = useState(true)
   const [showVolumeIcon, setShowVolumeIcon] = useState(false)
-  const [showPlayIcon, setShowPlayIcon] = useState(false)
+  const [showPlayIcon, setShowPlayIcon] = useState(false)  
   const [isLoading, setIsLoading] = useState(true)
   const [isHolding, setIsHolding] = useState(false)
+  const [hasError, setHasError] = useState(false)
+  const [retryCount, setRetryCount] = useState(0)
   
   // Touch/Mouse tracking for swipe and hold gestures
   const touchStartRef = useRef<{ x: number; y: number; time: number } | null>(null)
   const holdTimeoutRef = useRef<NodeJS.Timeout | null>(null)
   const iconTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const loadingTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   // Video event handlers
   useEffect(() => {
     const videoElement = videoRef.current
     if (!videoElement) return
 
+    // Set a timeout for video loading (10 seconds)
+    loadingTimeoutRef.current = setTimeout(() => {
+      if (isLoading) {
+        console.warn('Video loading timeout for:', video.videoUrl)
+        setHasError(true)
+        setIsLoading(false)
+      }
+    }, 10000)
+
     const handleLoadedData = () => {
+      console.log('Video loaded successfully:', video.videoUrl)
       setIsLoading(false)
+      setHasError(false)
+      if (loadingTimeoutRef.current) {
+        clearTimeout(loadingTimeoutRef.current)
+      }
       if (isActive) {
-        videoElement.play().catch(console.error)
+        videoElement.play().catch((error) => {
+          console.error('Error playing video:', error)
+          setHasError(true)
+        })
         setIsPlaying(true)
+      }
+    }
+
+    const handleError = (e: Event) => {
+      console.error('Video loading error:', e, 'URL:', video.videoUrl)
+      setIsLoading(false)
+      setHasError(true)
+      if (loadingTimeoutRef.current) {
+        clearTimeout(loadingTimeoutRef.current)
+      }
+    }
+
+    const handleLoadStart = () => {
+      console.log('Video loading started:', video.videoUrl)
+      setIsLoading(true)
+      setHasError(false)
+    }
+
+    const handleCanPlay = () => {
+      console.log('Video can start playing:', video.videoUrl)
+      // Additional fallback in case loadeddata doesn't fire
+      if (isLoading) {
+        setIsLoading(false)
+        setHasError(false)
       }
     }
 
@@ -61,17 +105,46 @@ const InstagramLikeVideoCard: React.FC<InstagramLikeVideoCardProps> = ({
     const handlePause = () => setIsPlaying(false)
 
     videoElement.addEventListener('loadeddata', handleLoadedData)
+    videoElement.addEventListener('loadstart', handleLoadStart)
+    videoElement.addEventListener('canplay', handleCanPlay)
+    videoElement.addEventListener('error', handleError)
     videoElement.addEventListener('ended', handleEnded)  
     videoElement.addEventListener('play', handlePlay)
     videoElement.addEventListener('pause', handlePause)
 
     return () => {
+      if (loadingTimeoutRef.current) {
+        clearTimeout(loadingTimeoutRef.current)
+      }
       videoElement.removeEventListener('loadeddata', handleLoadedData)
+      videoElement.removeEventListener('loadstart', handleLoadStart)
+      videoElement.removeEventListener('canplay', handleCanPlay)
+      videoElement.removeEventListener('error', handleError)
       videoElement.removeEventListener('ended', handleEnded)
       videoElement.removeEventListener('play', handlePlay)
       videoElement.removeEventListener('pause', handlePause)
     }
-  }, [isActive, onVideoEnd])
+  }, [isActive, onVideoEnd, video.videoUrl, isLoading])
+
+  // Retry mechanism for failed videos
+  const retryVideoLoad = useCallback(() => {
+    if (retryCount < 3) {
+      console.log(`Retrying video load (attempt ${retryCount + 1}):`, video.videoUrl)
+      setRetryCount(prev => prev + 1)
+      setHasError(false)
+      setIsLoading(true)
+      if (videoRef.current) {
+        videoRef.current.load() // Force reload
+      }
+    }
+  }, [retryCount, video.videoUrl])
+
+  // Reset retry count when video changes
+  useEffect(() => {
+    setRetryCount(0)
+    setHasError(false)
+    setIsLoading(true)
+  }, [video.id])
 
   // Handle active state changes
   useEffect(() => {
@@ -91,8 +164,21 @@ const InstagramLikeVideoCard: React.FC<InstagramLikeVideoCardProps> = ({
     return () => {
       if (holdTimeoutRef.current) clearTimeout(holdTimeoutRef.current)
       if (iconTimeoutRef.current) clearTimeout(iconTimeoutRef.current)
+      if (loadingTimeoutRef.current) clearTimeout(loadingTimeoutRef.current)
     }
   }, [])
+
+  // Force video to load when it becomes active
+  useEffect(() => {
+    if (isActive && videoRef.current && isLoading) {
+      // Force video load if it hasn't started loading
+      const currentSrc = videoRef.current.currentSrc || videoRef.current.src
+      if (!currentSrc || currentSrc !== video.videoUrl) {
+        videoRef.current.src = video.videoUrl
+        videoRef.current.load()
+      }
+    }
+  }, [isActive, video.videoUrl, isLoading])
 
   const showIconTemporarily = (type: 'volume' | 'play') => {
     if (iconTimeoutRef.current) clearTimeout(iconTimeoutRef.current)
@@ -207,7 +293,8 @@ const InstagramLikeVideoCard: React.FC<InstagramLikeVideoCardProps> = ({
       } else {
         onSwipeLeft?.()
       }
-    }    // Handle tap gestures (quick touch with minimal movement)
+    }    
+    // Handle tap gestures (quick touch with minimal movement)
     else if (duration < 300 && absDeltaX < 20 && absDeltaY < 20) {
       const rect = e.currentTarget.getBoundingClientRect()
       const tapY = endPoint.y - rect.top
@@ -236,8 +323,7 @@ const InstagramLikeVideoCard: React.FC<InstagramLikeVideoCardProps> = ({
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
       style={{ userSelect: 'none', touchAction: 'pan-y' }}
-    >
-      {/* Video Element */}
+    >      {/* Video Element */}
       <video
         ref={videoRef}
         className="w-full h-full object-cover"
@@ -245,10 +331,61 @@ const InstagramLikeVideoCard: React.FC<InstagramLikeVideoCardProps> = ({
         poster={video.thumbnail}
         loop
         playsInline
-        muted={isMuted}
-        preload="metadata"
+        muted={isMuted}        preload="metadata"
         controls={false}
+        crossOrigin="anonymous"
+        webkit-playsinline="true"
+        x5-playsinline="true"
+        x5-video-player-type="h5"
+        x5-video-player-fullscreen="true"
+        onLoadStart={() => {
+          console.log('Video load started for:', video.videoUrl)
+          setIsLoading(true)
+          setHasError(false)
+        }}
+        onLoadedData={() => {
+          console.log('Video loaded successfully:', video.videoUrl)
+          setIsLoading(false)
+          setHasError(false)
+        }}
+        onError={(e) => {
+          console.error('Video loading error:', e, 'URL:', video.videoUrl)
+          setIsLoading(false)
+          setHasError(true)
+        }}
+        onCanPlay={() => {
+          console.log('Video can play:', video.videoUrl)
+          if (isLoading) {
+            setIsLoading(false)
+            setHasError(false)
+          }
+        }}
       />
+
+      {/* Error State */}
+      {hasError && (
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/70 z-15">
+          <div className="text-center text-white p-4">
+            <div className="w-16 h-16 mx-auto mb-4 bg-red-500/20 rounded-full flex items-center justify-center">
+              <svg className="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.732-.833-2.5 0L4.268 13.5c-.77.833.192 2.5 1.732 2.5z" />
+              </svg>
+            </div>
+            <p className="text-sm mb-3">Failed to load video</p>
+            {retryCount < 3 && (
+              <button
+                onClick={retryVideoLoad}
+                className="bg-primary text-white px-4 py-2 rounded-lg text-sm hover:bg-primary/90 transition-colors"
+              >
+                Retry ({3 - retryCount} attempts left)
+              </button>
+            )}
+            {retryCount >= 3 && (
+              <p className="text-xs text-red-300">Please check your internet connection</p>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* Loading State */}
       {isLoading && (
