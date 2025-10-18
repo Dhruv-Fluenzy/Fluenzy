@@ -54,7 +54,7 @@ const InstagramLikeVideoCard: React.FC<InstagramLikeVideoCardProps> = ({
         setHasError(true)
         setIsLoading(false)
       }
-    }, 10000)
+    }, 5000)
 
     const handleLoadedData = () => {
       console.log('Video loaded successfully:', video.videoUrl)
