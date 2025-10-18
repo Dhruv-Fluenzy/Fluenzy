@@ -236,9 +236,9 @@ const VideoModal: React.FC<VideoModalProps> = ({
                   <span>• Click progress bar to seek</span>
                 </div>
                 
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                {/* <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <span>Powered by Cloudinary</span>
-                </div>
+                </div> */}
               </div>
             </div>
           </motion.div>
