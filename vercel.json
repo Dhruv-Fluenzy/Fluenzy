@@ -3,6 +3,11 @@
   "outputDirectory": "frontend/dist",
   "installCommand": "cd frontend && npm install",
   "rewrites": [
+    {
+      "src": "/sitemap.xml",
+      "headers": { "Content-Type": "application/xml" },
+      "dest": "/sitemap.xml"
+    },
     { "source": "/(.*)", "destination": "/" }
   ]
 }
