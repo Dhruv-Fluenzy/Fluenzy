@@ -1,5 +1,7 @@
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import { pageview } from "./analytics";
 import Index from "./pages/Index";
 import Fluencers from "./pages/Fluencers";
 import AllWork from "./pages/AllWork";
@@ -14,11 +16,21 @@ import ScrollToTop from "./components/ScrollToTop";
 import Services from "./pages/Services";
 import NotFound from "./pages/NotFound";
 
+function AnalyticsTracker() {
+  const location = useLocation();
+
+  useEffect(() => {
+    pageview(location.pathname + location.search);
+  }, [location]);
+
+  return null;
+}
 
 const App = () => (
 
       <BrowserRouter>
         <ScrollToTop />
+        <AnalyticsTracker />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/fluencers" element={<Fluencers />} />
