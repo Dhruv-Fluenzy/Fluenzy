@@ -14,6 +14,9 @@ const navLinks = [
     {
         name: "Fluencers",
         link: "/fluencers",
+    },    {
+        name: "Careers",
+        link: "/careers",
     },
 ];
 

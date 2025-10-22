@@ -7,6 +7,8 @@ import Fluencers from "./pages/Fluencers";
 import AllWork from "./pages/AllWork";
 import BrandOnboarding from "./pages/BrandOnboarding";
 import FluencerOnboarding from "./pages/FluencerOnboarding";
+import SalesExecutive from "./pages/SalesExecutive";
+import Careers from "./pages/Careers";
 import Register from "./pages/Authentication/Register";
 import Login from "./pages/Authentication/Login";
 import Layout from "./pages/Dasboard/Layout";
@@ -34,9 +36,10 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/fluencers" element={<Fluencers />} />
-          <Route path="/all-work" element={<AllWork />} />
-          <Route path="/brand-onboarding" element={<BrandOnboarding />} />
+          <Route path="/all-work" element={<AllWork />} />          <Route path="/brand-onboarding" element={<BrandOnboarding />} />
           <Route path="/fluencer-onboarding" element={<FluencerOnboarding />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/sales-executive" element={<SalesExecutive />} />
           {/* <Route path="/register" element={<Register />} /> */}
           {/* <Route path="/login" element={<Login />} /> */}
           {/* <Route path="/dashboard" element={<Layout />} /> */}

@@ -1,12 +1,16 @@
 {
   "buildCommand": "cd frontend && npm run build",
   "outputDirectory": "frontend/dist",
-  "installCommand": "cd frontend && npm install",
+  "installCommand": "npm install && cd frontend && npm install",
+  "functions": {
+    "api/sitemap.ts": {
+      "runtime": "nodejs18.x"
+    }
+  },
   "routes": [
     {
       "src": "/sitemap.xml",
-      "headers": { "Content-Type": "application/xml" },
-      "dest": "/sitemap.xml"
+      "dest": "/api/sitemap"
     },
     {
       "src": "/(.*)",
